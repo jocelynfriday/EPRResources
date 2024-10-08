@@ -43,6 +43,12 @@ Useful links:
   
   <summary><b><i>Prescribing Information System (PIS)</i></b></summary>
   [!NOTE] testing note
+    <p>
+  <img src="references/Total_presc_date.png", width=400 alt> 
+  <img src="references/Total_disp_date.png", width=400 alt> 
+      
+<em>Spread of recorded prescription days (<tt>PRESC_DATE</tt>) across the month versus spread of recorded dispensing days (<tt>DISP_DATE</tt>), a reimbursement artefact.</em>
+</p>
   </details>
 </details>
 
@@ -63,11 +69,12 @@ Useful links:
 </details>
 <details>
 <summary><b><i>British National Formulary (BNF)</i></b></summary>
-The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF that the medication is from. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with `02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with `0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and formulation (see below for a breakdown of a 9-character BNF code).
+The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF that the medication is from. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with `02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with `0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and its formulation (see below for a breakdown of a 9-character BNF code).
+  <p>
   <img src="references/BNF Code_v2.png", width=400 alt>
   
   <em>A breakdown of the BNF code for a generic 40 mg tablet of furosemide. `AA` in the `Product` section always indicates that the medication is a generic version. The asterisk indicates that any code could be entered in this section.</em>
-
+</p>
 </details>
 </details>  
 
