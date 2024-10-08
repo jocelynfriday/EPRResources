@@ -3,6 +3,22 @@ A collection of resources, both papers and websites, that I've found useful when
 
 <details>
 <summary><b>Data Source Descriptions</b></summary>
+  <details>
+<summary><b><i>Demographics</i></b></summary>
+    Scotland has a long history of electronic patient records (EPR) captured from birth through death using individual Community Health Index (CHI) numbers. CHI numbers allow for the unique identification and tracking of patients across NHS Scotland's services \citep{NHSDigChi2022}. The CHI number is the Scottish equivalent to England and Wales's NHS number. CHI numbers are assigned to each patient upon first registration with the system \citep{NHSChind}. CHI numbers are ten digits long, with the first six digits taken from the date of birth in two-digit format (<tt>DDMMYY</tt>), two random digits, a sex-based digit (i.e., even for women and odd for men), and an arithmetical check digit \citep{NHSDigChi2022}. 
+    <br></br>
+    The demographics data are collated from a collection of sources based on CHI numbers. The data made available within the dataset are acquired largely from NRS and records available to the NHS Safe Haven team. Demographic data include obfuscated date of birth (DOB), sex, and Scottish Index of Multiple Deprivation (SIMD).
+    <br></br>
+    <b>Date of Birth</b>
+    The canonical DOB is obfuscated by the NHS Safe Haven team. In the <tt>YYYY-MM-DD</tt> date format, DOBs are uniformly obfuscated by setting the day part of the date to be the middle of the month while maintaining the month and year values. For example, a birthday of 1922-01-09 would be changed to 1922-01-15.
+    <br></br>
+    <b>Scottish Index of Multiple Deprivation (SIMD)</b>
+    Scottish Index of Multiple Deprivation (SIMD) is an area-based measurement of socioeconomic deprivation assigned to residents of Scotland based on where they live. Scottish residents' SIMD 2012 status was calculated by the Scottish Government using thirty-one indicators from seven different aspects of deprivation: income, employment, health, education, housing, geographic access, and crime. The indicators are combined using a weighted sum to create a single index, providing a relative ranking for each small geographic area in Scotland. Areas average about 800 individuals \citep{Executive2012}. It is important to note that SIMD can only measure an area’s level of deprivation, not an individual’s level. The absence of deprivation should not necessarily be correlated with affluence. The terms most deprived or least deprived were used to refer to the areas and not to the individuals living in those areas \citep{Executive2012}. Other year's indexes are also available. 
+  </details>
+    <details>
+<summary><b><i>Deaths</i></b></summary>
+      The deaths file is a Tier 1 dataset containing combined records of death from the General Register Office, sourcing data primarily from National Records Scotland deaths, though others can be used. Each record contains information including date of death (DOD), location of death, the underlying cause of death (COD), and space for up to 10 contributing <tt>COD</tt>. Since 1 January 2000, CODs are coded in accordance with the International Classification of Disease, 10th revision (ICD-10) \citep{NRS_DeathsBackground} (see [Section ICD-10](#sec-icd10) for an explanation of ICD-10).
+    </details>
 <details>
 <summary><b><i>Scottish Morbidity Records (SMR)</i></b></summary>
 Scottish Morbidity Records are Tier 1 datasets, meaning data are collated at a national level and contain information from everyday care. These datasets contain individual-level healthcare data for patients treated within Scotland. The type of record denotes the general type of healthcare received and/or the patient's medical status.
