@@ -91,10 +91,18 @@ Useful links:
 <summary><b>Data classification</b></summary>
 <details>
 <summary><b><i>International Classification of Diseases, 10th revision</i></b></summary><a name="sec-icd10"></a>
-
+    <br></br>
+Useful links: 
+* https://icd.who.int/browse10/2016/en
+  
 </details>
 <details>
-<summary><b><i>Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4(OPCS-4)</i></b></summary><a name="sec-opcs"></a>
+<summary><b><i>Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4)</i></b></summary><a name="sec-opcs"></a>
+  The Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4) coding standard is developed, maintained, licensed, and supported by NHS Digital's Terminology and Classifications Delivery Service and governed by Crown Copyright \citep{opcsNHSDigital2019}. OPCS-4 is a hierarchical coding standard used to classify operations, procedures, and interventions conducted within the NHS. OPCS-4 codes are four characters long and have a similar structure to ICD-10 codes. OPCS-4 codes start with a letter followed by three digits. A full stop (.) separates the second and third digit \citep{opcs2021}. 
+  <br></br>
+Useful links:
+  *https://classbrowser.nhs.uk/#/book/OPCS-4.10
+  
 </details>
 <details>
 <summary><b><i>Read Codes</i></b></summary>
