@@ -100,14 +100,15 @@ Concerning the dispensing date, recorded dates likely represent when the pharmac
       
 <em>Spread of recorded prescription days (<tt>PRESC_DATE</tt>) across the month versus spread of recorded dispensing days (<tt>DISP_DATE</tt>), a reimbursement artefact.</em>
 </p>
-
+  Useful link: 
+* Describing paper: https://academic.oup.com/ije/article/45/3/714/2572798?login=true
   </details>
   <details>
   <summary><b><i>Scottish Care Information - Diabetes Collaboration (SCI-Diabetes)</i></b></summary>
     Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) is a Tier 1 dataset holding the electronic clinical registry records pertaining to the treatment of people with diabetes mellitus in Scotland \citep{Livingstone2012}. It holds some records dating back to the mid-1920s, but full coverage with automatic capture based on assigned Read Code started in 2000. It has a national estimated capture of $\geq$99\% of all people diagnosed with diabetes mellitus \citep{Livingstone2012}. 
     <br></br>
     
-  Useful links: 
+  Useful link: 
 * Describing paper: https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001321
 </details>
  <details>
