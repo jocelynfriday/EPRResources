@@ -101,7 +101,7 @@ Useful links:
   The Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4) coding standard is developed, maintained, licensed, and supported by NHS Digital's Terminology and Classifications Delivery Service and governed by Crown Copyright \citep{opcsNHSDigital2019}. OPCS-4 is a hierarchical coding standard used to classify operations, procedures, and interventions conducted within the NHS. OPCS-4 codes are four characters long and have a similar structure to ICD-10 codes. OPCS-4 codes start with a letter followed by three digits. A full stop (.) separates the second and third digit \citep{opcs2021}. 
   <br></br>
 Useful links:
-  *https://classbrowser.nhs.uk/#/book/OPCS-4.10
+  * Classification browser OPCS-4.10 https://classbrowser.nhs.uk/#/book/OPCS-4.10
   
 </details>
 <details>
