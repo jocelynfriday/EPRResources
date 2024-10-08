@@ -93,6 +93,7 @@ Useful links:
 
 Concerning the dispensing date, recorded dates likely represent when the pharmacy was reimbursed for the prescription (typically the last day of the month) rather than the date when the medication was dispensed to the patient. This record pattern is shown below, where prescription dates are uniform throughout the month, while dispensing dates tend to fall on the last day of the month. This is likely an artefact due to Scotland's free at-the-point-of-contact prescriptions, where pharmacies are reimbursed monthly rather than on the day when the patient collects the medication. 
 <br></br>
+
   [!NOTE] Be careful of the dispensing date, which most likely represents the month the prescription was picked up rather than the actual day. 
     <p>
   <img src="references/Total_presc_date.png", width=400 alt> 
@@ -100,12 +101,14 @@ Concerning the dispensing date, recorded dates likely represent when the pharmac
       
 <em>Spread of recorded prescription days (<tt>PRESC_DATE</tt>) across the month versus spread of recorded dispensing days (<tt>DISP_DATE</tt>), a reimbursement artefact.</em>
 </p>
+
   </details>
   <details>
   <summary><b><i>Scottish Care Information - Diabetes Collaboration (SCI-Diabetes)</i></b></summary>
     Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) is a Tier 1 dataset holding the electronic clinical registry records pertaining to the treatment of people with diabetes mellitus in Scotland \citep{Livingstone2012}. It holds some records dating back to the mid-1920s, but full coverage with automatic capture based on assigned Read Code started in 2000. It has a national estimated capture of $\geq$99\% of all people diagnosed with diabetes mellitus \citep{Livingstone2012}. 
     <br></br>
-    Useful links: 
+    
+  Useful links: 
 * Describing paper: https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001321
 </details>
  <details>
@@ -129,14 +132,18 @@ Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Sco
 <br></br>
  Internationally, many countries have developed country-specific modifications to the WHO's version of the ICD-10 codes \citep{Jette2010}. Universally, codes are at least three characters long, and the maximum can vary \citep{whoicd2016, Jette2010}. Within the UK, ICD-10 codes range between 4 and 6 characters long. The first character is a letter, following international standards, and the second two characters are always numbers, then a period followed by an alphanumeric character \citep{generalICD}. In the case of a 3-character code, the UK fills in the fourth character with an 'x' \citep{NhsDigitalIcd2022}. If present, the sixth character is the dagger 'D' or asterisk 'A' indicator, though these can be present in the fifth position, where there are either modified 3-character or standard 4-character codes \citep{codeFormats}. 
     <br></br>
-Useful links: Classification browser ICD-10: https://icd.who.int/browse10/2016/en
+  
+Useful links: 
+* Classification browser ICD-10: https://icd.who.int/browse10/2016/en
+* Code list generation: https://www.opencodelists.org/
   
 </details>
 <details>
 <summary><b><i>Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4)</i></b></summary><a name="sec-opcs"></a>
   The Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4) coding standard is developed, maintained, licensed, and supported by NHS Digital's Terminology and Classifications Delivery Service and governed by Crown Copyright \citep{opcsNHSDigital2019}. OPCS-4 is a hierarchical coding standard used to classify operations, procedures, and interventions conducted within the NHS. OPCS-4 codes are four characters long and have a similar structure to ICD-10 codes. OPCS-4 codes start with a letter followed by three digits. A full stop (.) separates the second and third digit \citep{opcs2021}. 
   <br></br>
-Useful links: Classification browser OPCS-4.10: https://classbrowser.nhs.uk/#/book/OPCS-4.10
+  
+Useful link: Classification browser OPCS-4.10: https://classbrowser.nhs.uk/#/book/OPCS-4.10
   
 </details>
 <details>
@@ -152,6 +159,31 @@ The first nine characters of the BNF code specify the chemical level of the medi
   
   <em>A breakdown of the BNF code for a generic 40 mg tablet of furosemide. 'AA' in the 'Product' section always indicates that the medication is a generic version. The asterisk indicates that any code could be entered in this section.</em>
 </p>
+<br></br>
+<b>Classifying Prescriptions</b>
+There are two primary ways to classify prescriptions. The first, and most straightforward way, is to classify prescriptions using the BNF Chapter, Section, or Paragraph. The benefit of this classification mechanism is that it easily groups medications without incorporating potential selection bias or classification errors. However, combination medications are often in a separate paragraph from the constituent chemicals. 
+<br></br>
+
+The alternative is to classify medications based on their active chemicals, meaning that loop diuretics would include all medications which included a member of the loop diuretic family:
+<br></br>
+
+|BNF Code  | Description |
+| ------------- | ------------- |
+| 020202 | Loop diuretics (the Paragraph) |
+| 0202040D0 | Amiloride HCI with loop diuretics |
+| 0202040B0 | Co-amilofruse (Amiloride hydrochloride/frusemide) |
+| 0202040T0 | Spironolactone with loop diuretics | 
+| 0202040U0 | Triamterene with loop diuretics | 
+| 0202080D0 | Bumetanide/Amiloride hydrochloride |
+| 0202080C0 | Bumetanide/potassium | 
+| 0202080K0 | Furosemide/potassium |
+
+<br></br>
+
+Useful links: 
+* Open Prescribing: https://openprescribing.net/bnf/
+* Code list generation: https://www.opencodelists.org/
+
 </details>
 </details>  
 
