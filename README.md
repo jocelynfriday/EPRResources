@@ -17,11 +17,12 @@ Scottish Morbidity Records are Tier 1 datasets, meaning data are collated at a n
 SMR01 contains information regarding all general and acute inpatient and day cases from all NHS hospitals in Scotland. Each row of data corresponds to an episode of care. Patients receive a new episode of care each time they change specialty, significant facility[^1], or consultant for medical reasons.
   
 [^1]: A division of medicine or density covering a specific area of clinical activity and identified within one of the Royal Colleges or Faculties
-Each episode of care contains some demographic information about the patient, admission, discharge, procedures if performed, and diagnostic factor(s) contributing to the episode. The demographic information contained within each row is limited to ethnicity, age, and \acrshort{simd} decile and quintile. Admission information covers admission date (\texttt{ADMDATE}), admission type (i.e., emergency, urgent, or routine in \texttt{ADMTYPE}), where the patient was admitted or transferred from (\texttt{ADMTRANS}), what specialty the patient was treated by (\texttt{SPEC}), and what hospital the patient was admitted to (\texttt{HOSP}). Discharge information covers discharge date (\texttt{DISDATE}), discharge type (e.g., regular discharge, death, or transfer in \texttt{DISTYPE}), and where the patient was discharged or transferred to (\texttt{DISTRANS}). 
-Each record must have the first diagnostic position (\texttt{DIAG1}) populated, which defines the primary diagnosis or main problem treated within the episode of care, and may have up to five additional positions populated with diagnosis information classified using \acrshort{icd10} codes (see Section \ref{sec:icd10}). Data quality assurance assessments have suggested coding accuracy levels $\geq$88\% using the first 4 digits of the \acrshort{icd10} code for \texttt{DIAG1}, but accuracy declines for \texttt{DIAG2} \hyp{} \texttt{DIAG6}, including under\hyp{}reporting of common conditions such as \acrshort{hf} and \acrshort{af/afl} \citep{PHS2019, Khand2005, DataAccuractySMR012019}. However, coding may be more accurate for some conditions which have a large objective component to diagnosis (e.g., cancer, \acrshort{mi}), but much less accurate for those which have a large subjective component (e.g., \acrshort{hf}), or where the problem is not considered a primary problem (e.g., AF \citep{Khand2005}.
-\end{sloppy}
 
-Additionally, each record has space for up to four procedures (\texttt{OPxA} [where \texttt{x} is the procedure number 1 \hyp{} 4]) with the potential for additional information (e.g., laterality, aborted, or unsuccessful are coded in \texttt{OPxB} [where \texttt{x} is the procedure number 1 \hyp{} 4]) codes recorded using \acrfull{opcs} (see Section \ref{sec:opcs}). Where applicable, the procedure coded in \texttt{OP1A} is considered the primary or main procedure for that episode of care. As with diagnostic codes, duality assurance assessments have shown coding accuracy levels $\geq$94\% using the first four digits of the \acrshort{opcs} code, with $\geq$97\% of hospitals reporting codes \citep{PHS2019}. 
+Each episode of care contains some demographic information about the patient, admission, discharge, procedures if performed, and diagnostic factor(s) contributing to the episode. The demographic information contained within each row is limited to ethnicity, age, and Scottish Index of Multiple Deprivation (SIMD) decile and quintile. Admission information covers admission date (<tt>ADMDATE</tt>), admission type (i.e., emergency, urgent, or routine in <tt>ADMTYPE</tt>), where the patient was admitted or transferred from (<tt>ADMTRANS</tt>), what specialty the patient was treated by (<tt>SPEC</tt>), and what hospital the patient was admitted to (<tt>HOSP</tt>). Discharge information covers discharge date (<tt>DISDATE</tt>), discharge type (e.g., regular discharge, death, or transfer in <tt>DISTYPE</tt>), and where the patient was discharged or transferred to (<tt>DISTRANS</tt>). 
+Each record must have the first diagnostic position (<tt>DIAG1</tt>) populated, which defines the primary diagnosis or main problem treated within the episode of care, and may have up to five additional positions populated with diagnosis information classified using ICD-10 codes (see [Section ICD-10](#sec-icd10)). Data quality assurance assessments have suggested coding accuracy levels $\geq$88\% using the first 4 digits of the ICD-10 code for <tt>DIAG1</tt>, but accuracy declines for <tt>DIAG2</tt> - <tt>DIAG6</tt>, including under-reporting of common conditions such as heart failure and atrial fibrillation/flutter \citep{PHS2019, Khand2005, DataAccuractySMR012019}. However, coding may be more accurate for some conditions which have a large objective component to diagnosis (e.g., cancer, myocardial infarction), but much less accurate for those which have a large subjective component (e.g., heart failure), or where the problem is not considered a primary problem (e.g., atrial fibrillation \citep{Khand2005}.
+
+
+Additionally, each record has space for up to four procedures (<tt>OPxA</tt> [where <tt>x</tt> is the procedure number 1 - 4]) with the potential for additional information (e.g., laterality, aborted, or unsuccessful are coded in <tt>OPxB</tt> [where <tt>x</tt> is the procedure number 1 - 4]) codes recorded using \acrfull{opcs} (see Section \ref{sec:opcs}). Where applicable, the procedure coded in <tt>OP1A</tt> is considered the primary or main procedure for that episode of care. As with diagnostic codes, duality assurance assessments have shown coding accuracy levels $\geq$94\% using the first four digits of the \acrshort{opcs} code, with $\geq$97\% of hospitals reporting codes \citep{PHS2019}. 
 
 Useful links:
 * SMR01 crib sheet:https://publichealthscotland.scot/media/24925/smr01_crib_270323.pdf
@@ -40,7 +41,7 @@ Useful links:
 </details>
   <details>
   
-  <summary>Prescribing Information System (PIS)</summary>
+  <summary><b><i>Prescribing Information System (PIS)</i></b></summary>
   [!NOTE] testing note
   </details>
 </details>
@@ -49,21 +50,21 @@ Useful links:
 </details>
 
 <details>
-<summary>Data classification </summary>
+<summary><b>Data classification</b></summary>
 <details>
-<summary>International Classification of Diseases, 10th revision</summary>
+<summary><b><i>International Classification of Diseases, 10th revision</i></b></summary><a name="sec-icd10"></a>
 
-
 </details>
 <details>
-<summary>Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4(OPCS-4)</summary>
+<summary><b><i>Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4(OPCS-4)</i></b></summary>
 </details>
 <details>
-<summary>Read Codes</summary>
+<summary><b><i>Read Codes</i></b></summary>
 </details>
 <details>
-<summary>British National Formulary (BNF)</summary>
+<summary><b><i>British National Formulary (BNF)</i></b></summary>
 The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF that the medication is from. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with `02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with `0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and formulation (see Figure \ref{fig:bnfCode} for a breakdown of a 9-character BNF code).
+  
 </details>
 </details>  
 
