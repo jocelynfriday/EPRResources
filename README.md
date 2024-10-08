@@ -93,7 +93,7 @@ Useful links:
 
 Concerning the dispensing date, recorded dates likely represent when the pharmacy was reimbursed for the prescription (typically the last day of the month) rather than the date when the medication was dispensed to the patient. This record pattern is shown below, where prescription dates are uniform throughout the month, while dispensing dates tend to fall on the last day of the month. This is likely an artefact due to Scotland's free at-the-point-of-contact prescriptions, where pharmacies are reimbursed monthly rather than on the day when the patient collects the medication. 
 
- 
+ <p></p>
     <p>
   <img src="references/Total_presc_date.png", width=300 alt> 
   <img src="references/Total_disp_date.png", width=300 alt> 
