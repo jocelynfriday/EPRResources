@@ -42,7 +42,7 @@ Scottish Morbidity Records are Tier 1 datasets containing individual-level healt
 <br/><br/>
 <details>
 <summary>SMR00 - Outpatient Appointments & Attendance</summary>
-  [!NOTE] Recommended to avoid using diagnostic or procedural information from SMR00
+  [!NOTE] It is Recommended to avoid using diagnostic or procedural information from SMR00
   <br></br>
   SMR00 contains information on outpatient appointments, attendance, and procedures performed. A record is generated when a patient either has outpatient clinical interaction or where the \allowbreak patient meets with a healthcare provider responsible for care outwith an outpatient clinic session \citep{SMR00nd}. The value of SMR00 lies in tracking patient contact with a specialist. Unfortunately, this rarely includes information on diagnosis or procedures.
 </details>
@@ -76,7 +76,14 @@ Useful links:
   <details>
   
   <summary><b><i>Prescribing Information System (PIS)</i></b></summary>
-  [!NOTE] testing note
+  The Prescribing Information System (PIS) is a fairly unique resource that enables pharmaco-epidemiological research due to its population coverage and record linkage. PIS covers all NHS medications prescribed, dispensed and reimbursed in the community setting within Scotland \citep{Alvarez-Madrazo2016}. Prescriptions written in hospitals and dispensed in the community setting are also included in the dataset \citep{pis2022}. Of note is that the West of Scotland version of PIS only holds records of dispensed prescriptions. PIS uses the CHI number to link individuals prescribing and dispensing data to their other health records data since 2009, with a coverage that is almost 100% for prescribed and dispensed items \citep{Alvarez-Madrazo2016}. 
+  <br></br>
+  For each reimbursed prescription, PIS provides the approved name, product name, formulation, and strength using the British National Formulary (BNF) chapter and item codes (see Section \ref{sec:bnf}). Importantly,PIS does not provide information on how often a medication should be taken, how many pills should be taken at one time, nor at what time of day. Additionally, records do not explicitly record the reasoning or timing of when treatment was started, changed, or terminated \citep{williams2016making}. 
+  <b>Use of Prescribing and Dispensing Date</b>
+  Each prescription record is accompanied by a prescribing date (<tt>PRESC_DATE</tt>), indicating when the medication was prescribed to the patient, and a dispensing date (<tt>DISP_DATE</tt>), when the patient acquired the medication. The PIS data has two known quirks involving the prescription and dispensing dates that need to be considered. Regarding the prescribing date, there were prescriptions for individual medications where the patient, medication, and prescribed date were the same, but each row had a different dispensed date. One would assume these are repeat prescriptions, but the pattern was rare before 2013. When this pattern isn't present, the prescribed date defaulted to the dispensed date for prescriptions after the initial prescription. That is, the prescribed date changed even if the prescription was repeated.
+
+Concerning the dispensing date, recorded dates likely represent when the pharmacy was reimbursed for the prescription (typically the last day of the month) rather than the date when the medication was dispensed to the patient. This record pattern is shown below, where prescription dates are uniform throughout the month, while dispensing dates tend to fall on the last day of the month. This is likely an artefact due to Scotland's free at-the-point-of-contact prescriptions, where pharmacies are reimbursed monthly rather than on the day when the patient collects the medication. 
+  [!NOTE] Be careful of the dispensing date, which most likely represents the month the prescription was picked up rather than the actual day. 
     <p>
   <img src="references/Total_presc_date.png", width=400 alt> 
   <img src="references/Total_disp_date.png", width=400 alt> 
