@@ -64,7 +64,8 @@ Useful links:
 <details>
 <summary><b><i>British National Formulary (BNF)</i></b></summary>
 The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF that the medication is from. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with `02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with `0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and formulation (see Figure \ref{fig:bnfCode} for a breakdown of a 9-character BNF code).
-  
+  ![BNF Code_v2](https://github.com/user-attachments/assets/1bdc6107-5462-4207-862d-53429db85d2d)
+
 </details>
 </details>  
 
