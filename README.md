@@ -29,7 +29,7 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
   </details>
     <details>
 <summary><b><i>Deaths</i></b></summary>
-      The deaths file is a Tier 1 dataset containing combined records of death from the General Register Office, sourcing data primarily from NRS deaths, though others can be used. Each record contains information including date of death (DOD), location of death, the underlying cause of death (COD), and space for up to 10 contributing <tt>COD</tt>. Since 1 January 2000, CODs are coded in accordance with the International Classification of Disease, 10th revision (ICD-10) \citep{NRS_DeathsBackground} (see [Section ICD-10](#sec-icd10)).
+      The deaths file is a Tier 1 dataset containing combined records of death from the General Register Office, sourcing data primarily from NRS deaths, though others can be used. Each record contains information including date of death (DOD), location of death, the underlying cause of death (COD), and space for up to 10 contributing <tt>COD</tt>. Since 1 January 2000, CODs are coded in accordance with the International Classification of Disease, 10<sup>th</sup> revision (ICD-10) \citep{NRS_DeathsBackground} (see [Section ICD-10](#sec-icd10)).
       <br></br>
       <b>Cause of death</b>
       The underlying COD was recorded under <tt>COD</tt>. Within Scotland and the UK, the underlying COD is defined according to the World Health Organization's (WHO) definition as either the disease or injury which initiated the series of events leading directly to death or the circumstances of the accident or violence which produced the fatal injury \citep{who2022death, NationalRecordsofScotlandCOD}. If the certifying medical personnel cannot choose a single underlying COD, NRS uses the internationally agreed mortality coding rules in the ICD-10 standard to select the underlying cause of death \citep{Calderwood2018CertOfDeath}. Additionally, up to ten contributory CODs may be recorded. These are listed in ascending order based on their location within the series of events leading to death, with the first recorded as <tt>COD0</tt> and the last recorded under <tt>COD9</tt>.
@@ -90,10 +90,13 @@ Useful links:
 <details>
 <summary><b>Data classification</b></summary>
 <details>
-<summary><b><i>International Classification of Diseases, 10th revision</i></b></summary><a name="sec-icd10"></a>
+<summary><b><i>International Classification of Diseases, 10<sup>th</sup> revision (ICD-10)</i></b></summary><a name="sec-icd10"></a>
+  The International Classification of Disease (ICD) was originally a system to classify causes of death but has since expanded its scope to include non-fatal diseases, medical procedures, impairments, disabilities and handicaps \citep{whoicd2016}. The 10\textsuperscript{th} revision was adopted by the \acrshort{who} in May 1990 and went into effect on 1\textsuperscript{st} January 1993 \citep{WhoICD2022}. More formally, the International Statistical Classification of Diseases and Related Health Problems, 10<sup>th</sup> Revision (ICD-10) coding standard is a hierarchical standard provided by the \acrshort{who} to enable systematic health recording and collection of statistics on disease in primary, secondary, tertiary care, and death certificates internationally and over time \citep{WhoICD2022}. The codes translate potentially complicated medical diagnoses and other health problems into a finite set of alphanumeric codes, permitting easy storage and analysis \citep{whoicd2016}. 
+
+ Internationally, many countries have developed country\hyp{}specific modifications to the WHO's version of the \acrshort{icd10} codes \citep{Jette2010}. Universally, codes are at least three characters long, and the maximum can vary \citep{whoicd2016, Jette2010}. Within the UK, \acrshort{icd10} codes range between 4 and 6 characters long. The first character is a letter, following international standards, and the second two characters are always numbers, then a period followed by an alphanumeric character \citep{generalICD}. In the case of a 3\hyp{}character code, the UK fills in the fourth character with an `x' \citep{NhsDigitalIcd2022}. If present, the sixth character is the dagger `D' or asterisk `A' indicator, though these can be present in the fifth position, where there are either modified 3\hyp{}character or standard 4\hyp{}character codes \citep{codeFormats}. 
     <br></br>
 Useful links: 
-* https://icd.who.int/browse10/2016/en
+* Classification browser ICD-10: https://icd.who.int/browse10/2016/en
   
 </details>
 <details>
@@ -101,7 +104,7 @@ Useful links:
   The Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4) coding standard is developed, maintained, licensed, and supported by NHS Digital's Terminology and Classifications Delivery Service and governed by Crown Copyright \citep{opcsNHSDigital2019}. OPCS-4 is a hierarchical coding standard used to classify operations, procedures, and interventions conducted within the NHS. OPCS-4 codes are four characters long and have a similar structure to ICD-10 codes. OPCS-4 codes start with a letter followed by three digits. A full stop (.) separates the second and third digit \citep{opcs2021}. 
   <br></br>
 Useful links:
-  * Classification browser OPCS-4.10 https://classbrowser.nhs.uk/#/book/OPCS-4.10
+  * Classification browser OPCS-4.10: https://classbrowser.nhs.uk/#/book/OPCS-4.10
   
 </details>
 <details>
