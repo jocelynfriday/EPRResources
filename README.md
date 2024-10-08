@@ -27,7 +27,7 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
     <br></br>
     <b>Sex</b> The Demographics \texttt{sex} field was taken as the authoritative version for an individual's sex. 
     <br></br>
-    [!NOTE] Ethnicity is not recorded in the demographics file, though it is recorded in multiple other datasets, including the Scottish Morbidity Records and Scottish Care Information (SCI) Diabetes. Each dataset has a different level of granularity (e.g., `White' versus `White - Scottish' or `White - British').
+    [!NOTE] Ethnicity is not recorded in the demographics file, though it is recorded in multiple other datasets, including the Scottish Morbidity Records and Scottish Care Information (SCI) Diabetes. Each dataset has a different level of granularity (e.g., 'White' versus 'White - Scottish' or 'White - British').
   </details>
     <details>
 <summary><b><i>Deaths</i></b></summary>
@@ -127,14 +127,16 @@ Useful links:
 </details>
 <details>
 <summary><b><i>Read Codes</i></b></summary>
+Read Codes are a hierarchical controlled clinical vocabulary for terms and short phrases \citep{Robinson1997, Pringle1990, Chisholm1990}. The first widely used version of Read Codes was standardised to 4-byte set codes, which was then extended to a 5-byte unified set. Version 2 added a term code to hold an <tt>idea</tt> or <tt>concept</tt>, where the preferred term appends '00' and additional synonyms append term codes 11-99 \citep{Booth1994}. For example, if the original 5-byte Read Code was 'G30..' for acute \acrlong{mi}, the 5-byte version 2 code, with the preferred term code, is 'G30..00' for 'Acute myocardial infarction' and the first synonym, 'Attack - heart' for heart attack, is 'G30..11', followed by 'Coronary thrombosis', 'G30..12'. 
+The WoS's GP LES dataset uses the 5-byte set of codes without the term code, which means synonyms are mapped onto the same five-digit code. For example, 'G580.00', 'Congestive heart failure', and 'G580.11', 'Congestive cardiac failure' both map onto 'G580.'. Additionally, trailing space holders (.) have been removed due to formatting errors or deliberate elimination. This means 'G580.11' maps to 'G580' and 'G58..00', 'heart failure' maps to 'G58'. 
 </details>
 <details>
 <summary><b><i>British National Formulary (BNF)</i></b></summary>
-The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF that the medication is from. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with `02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with `0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and its formulation (see below for a breakdown of a 9-character BNF code).
+The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF that the medication is from. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with '02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with '0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and its formulation (see below for a breakdown of a 9-character BNF code).
   <p>
   <img src="references/BNF Code_v2.png", width=400 alt>
   
-  <em>A breakdown of the BNF code for a generic 40 mg tablet of furosemide. `AA` in the `Product` section always indicates that the medication is a generic version. The asterisk indicates that any code could be entered in this section.</em>
+  <em>A breakdown of the BNF code for a generic 40 mg tablet of furosemide. 'AA' in the 'Product' section always indicates that the medication is a generic version. The asterisk indicates that any code could be entered in this section.</em>
 </p>
 </details>
 </details>  
