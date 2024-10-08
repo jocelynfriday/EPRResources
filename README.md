@@ -1,4 +1,4 @@
-# EPRResources
+# EPR Resources
 A collection of resources, both papers and websites, that I've found useful when working with UK electronic patient records (EPR). 
 
 Within a Scotland-specific context, NHS Scotland has a long tradition of linking and using health service data for research to improve patient outcomes, measure long-term outcomes in clinical trials, assess the safety of new medical interventions, and support understanding patterns in health and illness across whole populations. Within the context of Scottish NHS, Data Safe Havens form an integral part of Scotland's health informatics capabilities where it is not practicable to obtain individual patient consent for participation \citep{charterSH2015}. A Safe Haven is a secure research environment supported by trained staff and information governance processes where electronic patient records (EPR) can be linked with other data and made available in a de-identified form for analysis while protecting patient identity \citep{sh2012, charterSH2015, SH2023}. Safe Havens are structured such that the National Safe Haven contains information for all residents within Scotland, and four regional Safe Havens support it:
@@ -36,6 +36,13 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
       <b>Cause of death</b>
       The underlying COD was recorded under <tt>COD</tt>. Within Scotland and the UK, the underlying COD is defined according to the World Health Organization's (WHO) definition as either the disease or injury which initiated the series of events leading directly to death or the circumstances of the accident or violence which produced the fatal injury \citep{who2022death, NationalRecordsofScotlandCOD}. If the certifying medical personnel cannot choose a single underlying COD, NRS uses the internationally agreed mortality coding rules in the ICD-10 standard to select the underlying cause of death \citep{Calderwood2018CertOfDeath}. Additionally, up to ten contributory CODs may be recorded. These are listed in ascending order based on their location within the series of events leading to death, with the first recorded as <tt>COD0</tt> and the last recorded under <tt>COD9</tt>.
     </details>
+      <details>
+<summary><b><i>General Practice Local Enhanced Services (GP LES)/i></b></summary>
+        [!NOTE] Ccogerage ended in 2018. 
+ Local Enhanced Services (LES) for general practice surgeries (GPs) is a service for which general practice surgeries receive additional payments for demonstrating a high-quality service for specific conditions including coronary heart disease, diabetes mellitus, stroke, chronic obstructive pulmonary disease, heart failure with reduced ejection fraction (but not heart failure with preserved ejection fraction), learning disabilities, and nationally enhanced services for drug misuse. Surgeries can subscribe to any number of the LES, without covering every service. The GPLES is a dataset which contains information about patients who received care under the LES scheme. Of note, coverage ended in 2018. 
+
+Each GPLES record contains a <tt>safehavenID</tt>, the event date (<tt>EventDate</tt>), a Read code describing the entry (<tt>READCODE</tt>), a user-editable description to complement said code (<tt>Description</tt>), a flag for if the record pertains to a prescription (<tt>IsPrescription</tt>), a flag for if the record pertains to numerical values (<tt>IsValue</tt>), two value fields (<tt>Value1</tt> and <tt>Value2</tt>), the local enhanced service area (e.g., 3 for diabetes and 4 for congestive heart failure) (<tt>LESAreaID</tt>).
+      </details>
 <details>
 <summary><b><i>Scottish Morbidity Records (SMR)</i></b></summary>
 Scottish Morbidity Records are Tier 1 datasets containing individual-level healthcare data for patients treated on the NHS within Scotland. The type of record denotes the general type of healthcare received and/or the patient's medical status.
@@ -73,7 +80,7 @@ Useful links:
 <summary>SMR06</summary>
 </details>
 </details>
-  <details>
+<details>
   
   <summary><b><i>Prescribing Information System (PIS)</i></b></summary>
   The Prescribing Information System (PIS) is a fairly unique resource that enables pharmaco-epidemiological research due to its population coverage and record linkage. PIS covers all NHS medications prescribed, dispensed and reimbursed in the community setting within Scotland \citep{Alvarez-Madrazo2016}. Prescriptions written in hospitals and dispensed in the community setting are also included in the dataset \citep{pis2022}. Of note is that the West of Scotland version of PIS only holds records of dispensed prescriptions. PIS uses the CHI number to link individuals prescribing and dispensing data to their other health records data since 2009, with a coverage that is almost 100% for prescribed and dispensed items \citep{Alvarez-Madrazo2016}. 
