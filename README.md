@@ -103,7 +103,7 @@ Concerning the dispensing date, recorded dates likely represent when the pharmac
   </details>
   <details>
   <summary><b><i>Scottish Care Information - Diabetes Collaboration (SCI-Diabetes)</i></b></summary>
-    Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) is a Tier 1 dataset holding the electronic clinical registry records pertaining to the treatment of people with diabetes mellitus in Scotland \citep{Livingstone2012}. It holds some records dating back to the mid-1920s, but full coverage with automatic capture based on assigned Read Code started in 2000. It has a national estimated capture of $\geq$99\% of all people diagnosed with \acrshort{dm} \citep{Livingstone2012}. 
+    Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) is a Tier 1 dataset holding the electronic clinical registry records pertaining to the treatment of people with diabetes mellitus in Scotland \citep{Livingstone2012}. It holds some records dating back to the mid-1920s, but full coverage with automatic capture based on assigned Read Code started in 2000. It has a national estimated capture of $\geq$99\% of all people diagnosed with diabetes mellitus \citep{Livingstone2012}. 
     <br></br>
     Useful links: 
 * Describing paper: https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1001321
@@ -111,7 +111,13 @@ Concerning the dispensing date, recorded dates likely represent when the pharmac
  <details>
   <summary><b><i>Scottish Care Information Store (SCI Store)</i></b></summary>
 Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Scottish NHS Health Boards and contains clinical reports from biochemistry, haematology, pathology, microbiology, and radiology \citep{SciStoreAbout2015}. The most common SCI Store linkage provided is to extract information on haematology and biochemistry test values. When using haematology and biochemistry, it is recommended to select test types using the <tt>CLINICALCODEVALUE</tt> field to capture routine tests, rather than tests taken for niche reasons.  
+   <br></br>
+
+
    [!NOTE] Failed runs and impossible values are included.  Make sure to remove biologically implausible test results. 
+       <br></br>
+       <b>Serum Creatinine and Estimated Glomerular Filtration Rate</b>
+       Creatinine is a waste product from muscle tissue. Normal serum levels are based predominantly on an individual's age and sex; high levels indicate impaired renal function. Serum Creatinine values were identified using the <tt>CLINICALCODEVALUE</tt> `44J3.'. It is commonly used to estimate renal function as the main component in calculating the estimated glomerular filtration rate (eGFR). It is recommended to calculate the eGFR values directly from the serum creatinine rather than using the recorded eGFR values, as these recorded values are capped at 60 ml/min/1.73m<sup>2</sup> when values surpass this, and not all recorded serum creatinine values have mapped eGFR value.  To calculate eGFR, one must assume that the serum creatinine values were standardised using isotope dilution mass spectrometry. 
  </details>
 </details>
 
