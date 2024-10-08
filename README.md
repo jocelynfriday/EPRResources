@@ -26,6 +26,8 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
     Scottish Index of Multiple Deprivation (SIMD) is an area-based measurement of socioeconomic deprivation assigned to residents of Scotland based on where they live. Scottish residents' SIMD 2012 status was calculated by the Scottish Government using thirty-one indicators from seven different aspects of deprivation: income, employment, health, education, housing, geographic access, and crime. The indicators are combined using a weighted sum to create a single index, providing a relative ranking for each small geographic area in Scotland. Areas average about 800 individuals \citep{Executive2012}. It is important to note that SIMD can only measure an area’s level of deprivation, not an individual’s level. The absence of deprivation should not necessarily be correlated with affluence. The terms most deprived or least deprived were used to refer to the areas and not to the individuals living in those areas \citep{Executive2012}. Other year's indexes are also available. 
     <br></br>
     <b>Sex</b> The Demographics \texttt{sex} field was taken as the authoritative version for an individual's sex. 
+    <br></br>
+    [!NOTE] Ethnicity is not recorded in the demographics file, though it is recorded in multiple other datasets, including the Scottish Morbidity Records and Scottish Care Information (SCI) Diabetes. Each dataset has a different level of granularity (e.g., `White' versus `White - Scottish' or `White - British').
   </details>
     <details>
 <summary><b><i>Deaths</i></b></summary>
