@@ -199,4 +199,11 @@ Useful links:
 
 </details>
 </details>  
+<details>
+<summary><b>References</b></summary>
+The contents of this page have been adapted and extended from my PhD thesis: 
+FRIDAY, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and its relationship to the diagnosis of heart failure and to prognosis. PhD, University of Glasgow. 
+
+ 
+</details>
 
