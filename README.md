@@ -3,7 +3,7 @@ A collection of resources, both papers and websites, that I've found useful when
 
 Within a Scotland-specific context, NHS Scotland has a long tradition of linking and using health service data for research to improve patient outcomes, measure long-term outcomes in clinical trials, assess the safety of new medical interventions, and support understanding patterns in health and illness across whole populations. Within the context of Scottish NHS, Data Safe Havens form an integral part of Scotland's health informatics capabilities where it is not practicable to obtain individual patient consent for participation \citep{charterSH2015}. A Safe Haven is a secure research environment supported by trained staff and information governance processes where electronic patient records (EPR) can be linked with other data and made available in a de-identified form for analysis while protecting patient identity \citep{sh2012, charterSH2015, SH2023}. Safe Havens are structured such that the National Safe Haven contains information for all residents within Scotland, and four regional Safe Havens support it:
 * Health Informatics Centre (HIC) - NHS Tayside with the University of Dundee
-* DataLock - NHS Lothian with the University of Edinburgh
+* DataLoch - NHS Lothian with the University of Edinburgh
 * West of Scotland (WoS) Safe Haven - Greater Glasgow & Clyde Health Board with the University of Glasgow (recently formed from the Glasgow Safe Haven)
 * Grampian Data Safe Haven (DaSH) - NHS Grampian and the University of Aberdeen
 
