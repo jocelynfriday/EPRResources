@@ -90,9 +90,9 @@ Useful links:
 <details>
   
   <summary><b><i>Prescribing Information System (PIS)</i></b></summary>
-  The Prescribing Information System (PIS) is a fairly unique resource that enables pharmaco-epidemiological research due to its population coverage and record linkage. PIS covers all NHS medications prescribed, dispensed and reimbursed in the community setting within Scotland \citep{Alvarez-Madrazo2016}. Prescriptions written in hospitals and dispensed in the community setting are also included in the dataset \citep{pis2022}. Of note is that the West of Scotland version of PIS only holds records of dispensed prescriptions. PIS uses the CHI number to link individuals prescribing and dispensing data to their other health records data since 2009, with a coverage that is almost 100% for prescribed and dispensed items \citep{Alvarez-Madrazo2016}. 
+  The Prescribing Information System (PIS) is a fairly unique resource that enables pharmaco-epidemiological research due to its population coverage and record linkage. PIS covers all NHS medications prescribed, dispensed and reimbursed in the community setting within Scotland <a href="#Alvarez-Madrazo2016">(Alvarez-Madrozo et al. 2016)</a>. Prescriptions written in hospitals and dispensed in the community setting are also included in the dataset <a href="#pis2022">(Information Services Division Scotland 2022<i>a</i>)</a>. Of note is that the West of Scotland version of PIS only holds records of dispensed prescriptions. PIS uses the CHI number to link individuals prescribing and dispensing data to their other health records data since 2009, with a coverage that is almost 100% for prescribed and dispensed items <a href="#Alvarez-Madrazo2016">(Alvarez-Madrozo et al. 2016)</a>. 
   <br></br>
-  For each reimbursed prescription, PIS provides the approved name, product name, formulation, and strength using the British National Formulary (BNF) chapter and item codes (see Section \ref{sec:bnf}). Importantly, PIS does not provide information on how often a medication should be taken, how many pills should be taken at one time, nor at what time of day. Additionally, records do not explicitly record the reasoning or timing of when treatment was started, changed, or terminated \citep{williams2016making}. 
+  For each reimbursed prescription, PIS provides the approved name, product name, formulation, and strength using the British National Formulary (BNF) chapter and item codes (see Section \ref{sec:bnf}). Importantly, PIS does not provide information on how often a medication should be taken, how many pills should be taken at one time, nor at what time of day. Additionally, records do not explicitly record the reasoning or timing of when treatment was started, changed, or terminated <a href="#williams2016making">(Williams, Brown, Peek & Buchan 2016)</a>. 
   <br></br>
   <b>Use of Prescribing and Dispensing Date</b>
   Each prescription record is accompanied by a prescribing date (<tt>PRESC_DATE</tt>), indicating when the medication was prescribed to the patient, and a dispensing date (<tt>DISP_DATE</tt>), when the patient acquired the medication. The PIS data has two known quirks involving the prescription and dispensing dates that need to be considered. Regarding the prescribing date, there were prescriptions for individual medications where the patient, medication, and prescribed date were the same, but each row had a different dispensed date. One would assume these are repeat prescriptions, but the pattern was rare before 2013. When this pattern isn't present, the prescribed date defaulted to the dispensed date for prescriptions after the initial prescription. That is, the prescribed date changed even if the prescription was repeated.
@@ -111,7 +111,7 @@ Concerning the dispensing date, recorded dates likely represent when the pharmac
   </details>
   <details>
   <summary><b><i>Scottish Care Information - Diabetes Collaboration (SCI-Diabetes)</i></b></summary>
-    Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) is a Tier 1 dataset holding the electronic clinical registry records pertaining to the treatment of people with diabetes mellitus in Scotland \citep{Livingstone2012}. It holds some records dating back to the mid-1920s, but full coverage with automatic capture based on assigned Read Code started in 2000. It has a national estimated capture of $\geq$ 99% of all people diagnosed with diabetes mellitus \citep{Livingstone2012}. 
+    Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) is a Tier 1 dataset holding the electronic clinical registry records pertaining to the treatment of people with diabetes mellitus in Scotland <a href="#Livingstone2012">(Livingstone et al. 2012)</a>. It holds some records dating back to the mid-1920s, but full coverage with automatic capture based on assigned Read Code started in 2000. It has a national estimated capture of $\geq$ 99% of all people diagnosed with diabetes mellitus <a href="#Livingstone2012">(Livingstone et al. 2012)</a>. 
     <br></br>
     
   Useful link: 
@@ -119,7 +119,7 @@ Concerning the dispensing date, recorded dates likely represent when the pharmac
 </details>
  <details>
   <summary><b><i>Scottish Care Information Store (SCI Store)</i></b></summary>
-Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Scottish NHS Health Boards and contains clinical reports from biochemistry, haematology, pathology, microbiology, and radiology \citep{SciStoreAbout2015}. The most common SCI Store linkage provided is to extract information on haematology and biochemistry test values. When using haematology and biochemistry, it is recommended to select test types using the <tt>CLINICALCODEVALUE</tt> field to capture routine tests, rather than tests taken for niche reasons.  
+Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Scottish NHS Health Boards and contains clinical reports from biochemistry, haematology, pathology, microbiology, and radiology <a href="#SciStoreAbout2015">(NHS National Services Scotland 2015)</a>. The most common SCI Store linkage provided is to extract information on haematology and biochemistry test values. When using haematology and biochemistry, it is recommended to select test types using the <tt>CLINICALCODEVALUE</tt> field to capture routine tests, rather than tests taken for niche reasons.  
    <br></br>
    
  Useful link: WoS data package description: https://www.nhsggc.org.uk/media/251273/07-scistore-data-package.pdf
@@ -135,12 +135,13 @@ Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Sco
 <summary><b>Data classification</b></summary>
 <details>
 <summary><b><i>International Classification of Diseases, 10<sup>th</sup> revision (ICD-10)</i></b></summary><a name="sec-icd10"></a>
-  The International Classification of Disease (ICD) was originally a system to classify causes of death but has since expanded its scope to include non-fatal diseases, medical procedures, impairments, disabilities and handicaps \citep{whoicd2016}. The 10\textsuperscript{th} revision was adopted by the WHO in May 1990 and went into effect on 1 January 1993 \citep{WhoICD2022}. More formally, the International Statistical Classification of Diseases and Related Health Problems, 10<sup>th</sup> Revision (ICD-10) coding standard is a hierarchical standard provided by the WHO to enable systematic health recording and collection of statistics on disease in primary, secondary, tertiary care, and death certificates internationally and over time \citep{WhoICD2022}. The codes translate potentially complicated medical diagnoses and other health problems into a finite set of alphanumeric codes, permitting easy storage and analysis \citep{whoicd2016}. 
+  The International Classification of Disease (ICD) was originally a system to classify causes of death but has since expanded its scope to include non-fatal diseases, medical procedures, impairments, disabilities and handicaps <a href="#whoicd2016">(World Health Organization 2016)</a>. The 10<sup>th</sup> revision was adopted by the WHO in May 1990 and went into effect on 1 January 1993 <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. More formally, the International Statistical Classification of Diseases and Related Health Problems, 10<sup>th</sup> Revision (ICD-10) coding standard is a hierarchical standard provided by the WHO to enable systematic health recording and collection of statistics on disease in primary, secondary, tertiary care, and death certificates internationally and over time <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. The codes translate potentially complicated medical diagnoses and other health problems into a finite set of alphanumeric codes, permitting easy storage and analysis <a href="#whoicd2016">(World Health Organization 2016)</a>. 
 <br></br>
- Internationally, many countries have developed country-specific modifications to the WHO's version of the ICD-10 codes \citep{Jette2010}. Universally, codes are at least three characters long, and the maximum can vary \citep{whoicd2016, Jette2010}. Within the UK, ICD-10 codes range between 4 and 6 characters long. The first character is a letter, following international standards, and the second two characters are always numbers, then a period followed by an alphanumeric character \citep{generalICD}. In the case of a 3-character code, the UK fills in the fourth character with an 'x' \citep{NhsDigitalIcd2022}. If present, the sixth character is the dagger 'D' or asterisk 'A' indicator, though these can be present in the fifth position, where there are either modified 3-character or standard 4-character codes \citep{codeFormats}. 
+ Internationally, many countries have developed country-specific modifications to the WHO's version of the ICD-10 codes <a href="#Jette2010">(Jetté et al. 2010)</a>. Universally, codes are at least three characters long, and the maximum can vary (<a href="#whoicd2016">World Health Organization 2016</a>, <a href="#Jette2010">Jetté et al. 2010</a>). Within the UK, ICD-10 codes range between 4 and 6 characters long. The first character is a letter, following international standards, and the second two characters are always numbers, then a period followed by an alphanumeric character <a href="#generalICD">(NHS National Services Scotland nd<i>c</i>)</a>. In the case of a 3-character code, the UK fills in the fourth character with an 'x' \citep{NhsDigitalIcd2022}. If present, the sixth character is the dagger 'D' or asterisk 'A' indicator, though these can be present in the fifth position, where there are either modified 3-character or standard 4-character codes \citep{codeFormats}. 
     <br></br>
   
 Useful links: 
+* More on ICD-10 and formatting in Scotland: https://publichealthscotland.scot/services/national-data-catalogue/data-dictionary/search-the-data-dictionary/icd-10-general-information/?Search=I&ID=986&Title=ICD-10%20General%20Information
 * Classification browser ICD-10: https://icd.who.int/browse10/2016/en
 * Code list generation: https://www.opencodelists.org/
   
@@ -160,8 +161,8 @@ The WoS's GP LES dataset uses the 5-byte set of codes without the term code, whi
   <br></br>
 
   Useful links: 
-  * Code lists (published but use with care): https://clinicalcodes.rss.mhs.man.ac.uk/
-  * HDRUK Phenotye Library (published but use with care): https://phenotypes.healthdatagateway.org/
+  * Code lists (published, but use with care): https://clinicalcodes.rss.mhs.man.ac.uk/
+  * HDRUK Phenotype Library (published, but use with care): https://phenotypes.healthdatagateway.org/
 </details>
 <details>
 <summary><b><i>British National Formulary (BNF)</i></b></summary>
@@ -204,16 +205,28 @@ Useful links:
 The contents of this page have been adapted and extended from my PhD thesis: 
 Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and its relationship to the diagnosis of heart failure and to prognosis. PhD, University of Glasgow. 
 <br></br>
+
+<p id="Alvarez-Madrazo2016"> Alvarez-Madrazo, S., McTaggart, S., Nangle, C., Nicholson, E. & Bennie, M. (2016), ‘Data resource profile: The Scottish National Prescribing Information System (PIS)’, International Journal of Epidemiology 45(3), 714–715f. URL: https://doi.org/10.1093/ije/dyw060
   
 <p id="Calderwood2018CertOfDeath"> Calderwood, C. & Slater, A. (2018), ‘Guidene for doctors completing medical certificates of the cause of death (MCCD) and its quality assurance’. URL: https://www.gov.scot/publications/medical-certificates-of-cause-of-death-guidanceon-completion/. Accessed: 16 September 2022
 
+<p id="pis2022"> Information Services Division Scotland (2022a), ‘Prescribing Information System (PIS)’. URL: https://www.ndc.scot.nhs.uk/National-Datasets/data.asp?SubID=9. Accessed: 10 January 2023
+
+<p id="Jette2010"> Jetté, N., Quan, H., Hemmelgarn, B., Drosler, S., Maass, C., Oec, D.-G., Moskal, L., Paoin, W., Sundararajan, V., Gao, S., Jakob, R., Üstün, B., Ghali, W. A. & the IMECCHI Investigators (2010), ‘The development, evolution, and modifications of ICD-10: Challenges to the international comparability of morbidity data’, Medical Care 48(12), 1105–1110. URL: http://www.jstor.org/stable/25767019
+
 <p id="Khand2005"> Khand, A. U., Shaw, M., Gemmel, I. & Cleland, J. G. (2005), ‘Do discharge codes underestimate hospitalisation due to heart failure? Validation study of hospital discharge coding for heart failure’, Eur J Heart Fail 7(5), 792–7. URL: https://www.ncbi.nlm.nih.gov/pubmed/16054867
+
+<p id="Livingstone2012"> Livingstone, S. J., Looker, H. C., Hothersall, E. J., Wild, S. H., Lindsay, R. S., Chalmers, J., Cleland, S., Leese, G. P., McKnight, J., Morris, A. D., Pearson, D. W. M., Peden, N. R., Petrie, J. R., Philip, S., Sattar, N., Sullivan, F. & Colhoun, H. M. (2012), ‘Risk of cardiovascular disease and total mortality in adults with type 1 diabetes: Scottish registry linkage study’, PLOS Medicine 9(10), 1–11. URL: https://doi.org/10.1371/journal.pmed.1001321
   
 <p id="NHSDigChi2022"> NHS Digital (2022<i>a</i>), ‘Community Health Index Number’. URL: https://www.datadictionary.nhs.uk/attributes/community_health_index_number.html. Accessed: 2 October 2022
+
+<p id="SciStoreAbout2015"> NHS National Services Scotland (2015), ‘SCI Store product overview’. URL: https://www.sci.scot.nhs.uk/products/store/General/SCI%20Store%20-%20Product%20Description.pdf. Accessed: 11 June 2022
 
 <p id="NHSChind"> NHS National Services Scotland (nd<i>a</i>), ‘CHI number’. URL: https://www.ndc.scot.nhs.uk/Dictionary-AZ/Definitions/index.asp?Search=C&ID=128&Title=CHI%20Number. Accessed: 2 October 2022
 
 <p id="SMR00nd"> NHS National Services Scotland (nd<i>d</i>), ‘SMR00 - summary of rules’. URL: https://www.ndc.scot.nhs.uk/Dictionary-AZ/Definitions/index.asp?Search=S&ID=996&Title=SMR00%20-%20Summary%20of%20Rules. Accessed: 19 May 2022
+
+<p id="generalICD"> NHS National Services Scotland (nd<i>c</i>), General information on the ISCD & related health problems (ICD-10)’. URL: https://www.ndc.scot.nhs.uk/Data-Dictionary/SMR-Datasets/General-Clinical-Information/Diagnostic-Section/General%20Information%20on%20the%20ISCD.asp. Accessed: 25 September 2022
 
 <p id="NRS_DeathsBackground"> National Records of Scotland (2017), ‘Vital events - deaths - background information’. URL: https://www.nrscotland.gov.uk/files/statistics/vital-events/coding-causes-of-death.pdf. Accessed: 19 June 2022.
 
@@ -232,8 +245,15 @@ URL: https://www.isdscotland.org/Products-and-Services/Data-Quality/docs/Assessm
 
 <p id="Watson2020"> Watson, S. (2020), ‘Safe Haven’. URL: https://www.quest.scot.nhs.uk/hc/en-gb/articles/115005312709-Safe-Haven. Accessed: 19 April 2022.
 
+<p id="williams2016making"> Williams, R., Brown, B., Peek, N. & Buchan, I. (2016), ‘Making medication data meaningful: illustrated with hypertension’, Studies in health technology and informatics 228, 247–251.
+
+
+<p id="whoicd2016"> World Health Organization (2016), International statistical classification of diseases and related health problems - 10th revision, Vol. 3, 5th edn, World Health Organization, France. URL: https://apps.who.int/iris/bitstream/10665/246208/1/9789241549165-V1-eng.pdf
+
 <p id="who2022death"> World Health Organization (2022<i>a</i>), ‘Cause of death’. URL:https://www.who.int/standards/classifications/classification-of-diseases/cause-of-death. Accessed: 16 September 2022.
 
-  
+
+<p id="WhoICD2022"> World Health Organization (2022<i>b</i>), ‘Classification of disease’. URL: https://www.who.int/standards/classifications/classification-of-diseases. Accessed: 25 September 2022.
+ 
 </details>
 
