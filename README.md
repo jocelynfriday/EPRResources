@@ -137,7 +137,7 @@ Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Sco
 <summary><b><i>International Classification of Diseases, 10<sup>th</sup> revision (ICD-10)</i></b></summary><a name="sec-icd10"></a>
   The International Classification of Disease (ICD) was originally a system to classify causes of death but has since expanded its scope to include non-fatal diseases, medical procedures, impairments, disabilities and handicaps <a href="#whoicd2016">(World Health Organization 2016)</a>. The 10<sup>th</sup> revision was adopted by the WHO in May 1990 and went into effect on 1 January 1993 <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. More formally, the International Statistical Classification of Diseases and Related Health Problems, 10<sup>th</sup> Revision (ICD-10) coding standard is a hierarchical standard provided by the WHO to enable systematic health recording and collection of statistics on disease in primary, secondary, tertiary care, and death certificates internationally and over time <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. The codes translate potentially complicated medical diagnoses and other health problems into a finite set of alphanumeric codes, permitting easy storage and analysis <a href="#whoicd2016">(World Health Organization 2016)</a>. 
 <br></br>
- Internationally, many countries have developed country-specific modifications to the WHO's version of the ICD-10 codes <a href="#Jette2010">(Jetté et al. 2010)</a>. Universally, codes are at least three characters long, and the maximum can vary (<a href="#whoicd2016">World Health Organization 2016</a>, <a href="#Jette2010">Jetté et al. 2010</a>). Within the UK, ICD-10 codes range between 4 and 6 characters long. The first character is a letter, following international standards, and the second two characters are always numbers, then a period followed by an alphanumeric character <a href="#generalICD">(NHS National Services Scotland nd<i>c</i>)</a>. In the case of a 3-character code, the UK fills in the fourth character with an 'x' \citep{NhsDigitalIcd2022}. If present, the sixth character is the dagger 'D' or asterisk 'A' indicator, though these can be present in the fifth position, where there are either modified 3-character or standard 4-character codes \citep{codeFormats}. 
+ Internationally, many countries have developed country-specific modifications to the WHO's version of the ICD-10 codes <a href="#Jette2010">(Jetté et al. 2010)</a>. Universally, codes are at least three characters long, and the maximum can vary (<a href="#whoicd2016">World Health Organization 2016</a>, <a href="#Jette2010">Jetté et al. 2010</a>). Within the UK, ICD-10 codes range between 4 and 6 characters long. The first character is a letter, following international standards, and the second two characters are always numbers, then a period followed by an alphanumeric character <a href="#generalICD">(NHS National Services Scotland nd<i>c</i>)</a>. In the case of a 3-character code, the UK fills in the fourth character with an 'x' <a href="#NhsDigitalIcd2022">(NHS Digital 2022<i>b</i>)</a>. If present, the sixth character is the dagger 'D' or asterisk 'A' indicator, though these can be present in the fifth position, where there are either modified 3-character or standard 4-character codes <a href="#codeFormats">(NHS National Services Scotland nd<i>b</i>)</a>. 
     <br></br>
   
 Useful links: 
@@ -148,7 +148,7 @@ Useful links:
 </details>
 <details>
 <summary><b><i>Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4)</i></b></summary><a name="sec-opcs"></a>
-  The Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4) coding standard is developed, maintained, licensed, and supported by NHS Digital's Terminology and Classifications Delivery Service and governed by Crown Copyright \citep{opcsNHSDigital2019}. OPCS-4 is a hierarchical coding standard used to classify operations, procedures, and interventions conducted within the NHS. OPCS-4 codes are four characters long and have a similar structure to ICD-10 codes. OPCS-4 codes start with a letter followed by three digits. A full stop (.) separates the second and third digit \citep{opcs2021}. 
+  The Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4) coding standard is developed, maintained, licensed, and supported by NHS Digital's Terminology and Classifications Delivery Service and governed by Crown Copyright <a href="#opcsNHSDigital2019">(NHS Digital 2019)</a>. OPCS-4 is a hierarchical coding standard used to classify operations, procedures, and interventions conducted within the NHS. OPCS-4 codes are four characters long and have a similar structure to ICD-10 codes. OPCS-4 codes start with a letter followed by three digits. A full stop (.) separates the second and third digit <a href="#opcs2021">(NHS Digital 2021)</a>. 
   <br></br>
   
 Useful link: Classification browser OPCS-4.10: https://classbrowser.nhs.uk/#/book/OPCS-4.10
@@ -156,7 +156,7 @@ Useful link: Classification browser OPCS-4.10: https://classbrowser.nhs.uk/#/boo
 </details>
 <details>
 <summary><b><i>Read Codes</i></b></summary>
-Read Codes are a hierarchical controlled clinical vocabulary for terms and short phrases \citep{Robinson1997, Pringle1990, Chisholm1990}. The first widely used version of Read Codes was standardised to 4-byte set codes, which was then extended to a 5-byte unified set. Version 2 added a term code to hold an <tt>idea</tt> or <tt>concept</tt>, where the preferred term appends '00' and additional synonyms append term codes 11-99 \citep{Booth1994}. For example, if the original 5-byte Read Code was 'G30..' for acute myocardial infarction, the 5-byte version 2 code, with the preferred term code, is 'G30..00' for 'Acute myocardial infarction' and the first synonym, 'Attack - heart' for heart attack, is 'G30..11', followed by 'Coronary thrombosis', 'G30..12'. 
+Read Codes are a hierarchical controlled clinical vocabulary for terms and short phrases (<a href="#Robinson1997">Robinson et al. 1997</a>, <a href="#Pringle1990">Pringle 1990</a>, <a href="#Chisholm1990">Chisholm 1990</a>). The first widely used version of Read Codes was standardised to 4-byte set codes, which was then extended to a 5-byte unified set. Version 2 added a term code to hold an <tt>idea</tt> or <tt>concept</tt>, where the preferred term appends '00' and additional synonyms append term codes 11-99 \citep{Booth1994}. For example, if the original 5-byte Read Code was 'G30..' for acute myocardial infarction, the 5-byte version 2 code, with the preferred term code, is 'G30..00' for 'Acute myocardial infarction' and the first synonym, 'Attack - heart' for heart attack, is 'G30..11', followed by 'Coronary thrombosis', 'G30..12'. 
 The WoS's GP LES dataset uses the 5-byte set of codes without the term code, which means synonyms are mapped onto the same five-digit code. For example, 'G580.00', 'Congestive heart failure', and 'G580.11', 'Congestive cardiac failure' both map onto 'G580.'. Additionally, trailing space holders (.) have been removed due to formatting errors or deliberate elimination. This means 'G580.11' maps to 'G580' and 'G58..00', and 'heart failure' maps to 'G58'. 
   <br></br>
 
@@ -210,6 +210,8 @@ Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and it
   
 <p id="Calderwood2018CertOfDeath"> Calderwood, C. & Slater, A. (2018), ‘Guidene for doctors completing medical certificates of the cause of death (MCCD) and its quality assurance’. URL: https://www.gov.scot/publications/medical-certificates-of-cause-of-death-guidanceon-completion/. Accessed: 16 September 2022
 
+<p id="Chisholm1990"> Chisholm, J. (1990), ‘The Read clinical classification’, BMJ (Clinical research ed.) 300(6732), 1092–1092. URL: https://www.bmj.com/content/300/6732/1092
+
 <p id="pis2022"> Information Services Division Scotland (2022a), ‘Prescribing Information System (PIS)’. URL: https://www.ndc.scot.nhs.uk/National-Datasets/data.asp?SubID=9. Accessed: 10 January 2023
 
 <p id="Jette2010"> Jetté, N., Quan, H., Hemmelgarn, B., Drosler, S., Maass, C., Oec, D.-G., Moskal, L., Paoin, W., Sundararajan, V., Gao, S., Jakob, R., Üstün, B., Ghali, W. A. & the IMECCHI Investigators (2010), ‘The development, evolution, and modifications of ICD-10: Challenges to the international comparability of morbidity data’, Medical Care 48(12), 1105–1110. URL: http://www.jstor.org/stable/25767019
@@ -218,7 +220,13 @@ Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and it
 
 <p id="Livingstone2012"> Livingstone, S. J., Looker, H. C., Hothersall, E. J., Wild, S. H., Lindsay, R. S., Chalmers, J., Cleland, S., Leese, G. P., McKnight, J., Morris, A. D., Pearson, D. W. M., Peden, N. R., Petrie, J. R., Philip, S., Sattar, N., Sullivan, F. & Colhoun, H. M. (2012), ‘Risk of cardiovascular disease and total mortality in adults with type 1 diabetes: Scottish registry linkage study’, PLOS Medicine 9(10), 1–11. URL: https://doi.org/10.1371/journal.pmed.1001321
   
+<p id="opcsNHSDigital2019"> NHS Digital (2019), ‘DCB0084: OPCS Classification of Interventions and Procedures’. URL: https://digital.nhs.uk/data-and-information/information-standards/information-standardsand-data-collections-including-extractions/publications-and-notifications/standards-andcollections/dcb0084-opcs-classification-of-interventions-and-procedures. Accessed: 26 September 2022
+
+<p id="opcs2021"> NHS Digital (2021), ‘National clinical coding standards OPCS-4’. URL: https://classbrowser.nhs.uk/ref_books/OPCS-4.9_NCCS-2021.pdf. Accessed: 5 October 2022
+
 <p id="NHSDigChi2022"> NHS Digital (2022<i>a</i>), ‘Community Health Index Number’. URL: https://www.datadictionary.nhs.uk/attributes/community_health_index_number.html. Accessed: 2 October 2022
+
+<p id="NhsDigitalIcd2022"> NHS Digital (2022<i>b</i>), ‘ICD-10 code’. URL: https://www.datadictionary.nhs.uk/data_elements/icd-10_code.html. Accessed: 25 September 2022
 
 <p id="SciStoreAbout2015"> NHS National Services Scotland (2015), ‘SCI Store product overview’. URL: https://www.sci.scot.nhs.uk/products/store/General/SCI%20Store%20-%20Product%20Description.pdf. Accessed: 11 June 2022
 
@@ -226,7 +234,9 @@ Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and it
 
 <p id="SMR00nd"> NHS National Services Scotland (nd<i>d</i>), ‘SMR00 - summary of rules’. URL: https://www.ndc.scot.nhs.uk/Dictionary-AZ/Definitions/index.asp?Search=S&ID=996&Title=SMR00%20-%20Summary%20of%20Rules. Accessed: 19 May 2022
 
-<p id="generalICD"> NHS National Services Scotland (nd<i>c</i>), General information on the ISCD & related health problems (ICD-10)’. URL: https://www.ndc.scot.nhs.uk/Data-Dictionary/SMR-Datasets/General-Clinical-Information/Diagnostic-Section/General%20Information%20on%20the%20ISCD.asp. Accessed: 25 September 2022
+<p id="codeFormats"> NHS National Services Scotland (nd<i>b</i>), ‘Code formats for ICD-10’. URL: https://www.ndc.scot.nhs.uk/Data-Dictionary/SMR-Datasets/General-Clinical-Information/Diagnostic-Section/Code-Formats-for-ICD10.asp  Accessed: 25 September 2022
+
+<p id="generalICD"> NHS National Services Scotland (nd<i>c</i>), General information on the ISCD & related health problems (ICD-10)’. URL: https://www.ndc.scot.nhs.uk/Data-Dictionary/SMR-Datasets/General-Clinical-Information/Diagnostic-Section/General%20Information%20on%20the%20ISCD. Accessed: 25 September 2022
 
 <p id="NRS_DeathsBackground"> National Records of Scotland (2017), ‘Vital events - deaths - background information’. URL: https://www.nrscotland.gov.uk/files/statistics/vital-events/coding-causes-of-death.pdf. Accessed: 19 June 2022.
 
@@ -237,9 +247,13 @@ URL: https://www.isdscotland.org/Products-and-Services/Data-Quality/docs/Assessm
   
 <p id="sh2012"> NHS Research Scotland (2012<i>a</i>), ‘Data Safe Haven’. URL: https://www.nhsresearchscotland.org.uk/research-in-scotland/data/safe-havens. Accessed: 3 October 2022.
 
-<p id="PHS2019"> Public Health Scotland (2019), Assessment of SMR01 (Acute Inpatient and Day Case) data Scotland 2019-2020, Public Health Scotland Report. URL: https://beta.isdscotland.org/media/7465/assessment-of-smr01-data-scotland-report-2019-v1.pdf. Accessed: 4 July 2022.
+<p id="Pringle1990"> Pringle, M. (1990), ‘The new agenda for general practice computing’, BMJ (Clinical research ed.) 301(6756), 827–828. URL: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1663967/
   
-<p id="Executive2012"> The Scottish Government (2012), ‘The Scottish Index of Multiple Deprivation 2012’. URL: https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2012/12/scottish-index-multiple-deprivation-2012-executive-summary/documents/scottishindex-multiple-deprivation-2012-executive-summary/scottish-index-multiple-deprivation-2012-executive-summary/govscot%3Adocument/00410895.pdf. 
+<p id="PHS2019"> Public Health Scotland (2019), Assessment of SMR01 (Acute Inpatient and Day Case) data Scotland 2019-2020, Public Health Scotland Report. URL: https://beta.isdscotland.org/media/7465/assessment-of-smr01-data-scotland-report-2019-v1.pdf. Accessed: 4 July 2022.
+
+<p id="Robinson1997"> Robinson, D., Schulz, E., Brown, P. & Price, C. (1997), ‘Updating the Read Codes: user-interactive maintenance of a dynamic clinical vocabulary’, Journal of the American Medical Informatics Association: JAMIA 4(6), 465–472. URL: https://academic.oup.com/jamia/article/4/6/465/786188
+  
+<p id="Executive2012"> The Scottish Government (2012), ‘The Scottish Index of Multiple Deprivation 2012’. URL: https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2012/12/scottish-index-multiple-deprivation-2012-executive-summary/documents/scottishindex-multiple-deprivation-2012-executive-summary/scottish-index-multiple-deprivation-2012-executive-summary/govscot%3Adocument/00410895.pdf 
 
 <p id="charterSH2015"> The Scottish Government (2015), ‘Charter for Safe Havens in Scotland: Handling unconsented data from National Health Service patient records to support research and statistics.’. URL: https://www.gov.scot/publications/charter-safe-havens-scotland-handling-unconsented-datanational-health-service-patient-records-support-research-statistics/documents/. Accessed: 3 October 2022.
 
