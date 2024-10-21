@@ -20,7 +20,7 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
 <summary><b><i>Demographics</i></b></summary>
     Scotland has a long history of EPR captured from birth through death using individual Community Health Index (CHI) numbers. CHI numbers allow for the unique identification and tracking of patients across NHS Scotland's services <a href="#NHSDigChi2022">(NHS Digital 2022<i>a</i>)</a>. The CHI number is the Scottish equivalent to England and Wales's NHS number. CHI numbers are assigned to each patient upon first registration with the system <a href="#NHSChind">(NHS National Services Scotland nd<i>a</i>)</a>. CHI numbers are ten digits long, with the first six digits taken from the date of birth in two-digit format (<tt>DDMMYY</tt>), two random digits, a sex-based digit (i.e., even for women and odd for men), and an arithmetical check digit <a href="#NHSDigChi2022">(NHS Digital 2022<i>a</i>)</a>. 
     <br></br>
-    The demographics data are collated from a collection of sources based on CHI numbers. The data made available within the dataset are acquired largely from National Records Scotland (NRS) and records available to the NHS Safe Haven team. Demographic data include obfuscated date of birth (DOB), sex, and Scottish Index of Multiple Deprivation (SIMD).
+    The demographic data are collated from a collection of sources based on CHI numbers. The data available within the dataset are acquired largely from National Records Scotland (NRS) and records available to the NHS Safe Haven team. Demographic data include obfuscated date of birth (DOB), sex, and Scottish Index of Multiple Deprivation (SIMD).
     <br></br>
     <b>Date of Birth</b>
     The NHS Safe Haven team obfuscated the canonical DOB. In the <tt>YYYY-MM-DD</tt> date format, DOBs are uniformly obfuscated by setting the day part of the date to be the middle of the month while maintaining the month and year values. For example, a birthday of 1922-01-09 would be changed to 1922-01-15.
@@ -37,10 +37,10 @@ Useful link: https://www.gov.scot/collections/scottish-index-of-multiple-depriva
   </details>
     <details>
 <summary><b><i>Deaths</i></b></summary>
-      The deaths file is a Tier 1 dataset containing combined records of death from the General Register Office, sourcing data primarily from NRS deaths, though others can be used. Each record contains information including date of death (DOD), location of death, the underlying cause of death (COD), and space for up to 10 contributing <tt>COD</tt>. Since 1 January 2000, CODs are coded in accordance with the International Classification of Disease, 10<sup>th</sup> revision (ICD-10) \citep{NRS_DeathsBackground} (see [Section ICD-10](#sec-icd10)).
+      The deaths file is a Tier 1 dataset containing combined records of death from the General Register Office, sourcing data primarily from NRS deaths, though others can be used. Each record contains information including date of death (DOD), location of death, the underlying cause of death (COD), and space for up to 10 contributing <tt>COD</tt>. Since 1 January 2000, CODs are coded in accordance with the International Classification of Disease, 10<sup>th</sup> revision (ICD-10) <a href="#NRS_DeathsBackground">(National Records of Scotland 2017)</a> (see [Section ICD-10](#sec-icd10)).
       <br></br>
       <b>Cause of death</b>
-      The underlying COD was recorded under <tt>COD</tt>. Within Scotland and the UK, the underlying COD is defined according to the World Health Organization's (WHO) definition as either the disease or injury which initiated the series of events leading directly to death or the circumstances of the accident or violence which produced the fatal injury \citep{who2022death, NationalRecordsofScotlandCOD}. If the certifying medical personnel cannot choose a single underlying COD, NRS uses the internationally agreed mortality coding rules in the ICD-10 standard to select the underlying cause of death \citep{Calderwood2018CertOfDeath}. Additionally, up to ten contributory CODs may be recorded. These are listed in ascending order based on their location within the series of events leading to death, with the first recorded as <tt>COD0</tt> and the last recorded under <tt>COD9</tt>.
+      The underlying COD was recorded under <tt>COD</tt>. Within Scotland and the UK, the underlying COD is defined according to the World Health Organization's (WHO) definition as either the disease or injury which initiated the series of events leading directly to death or the circumstances of the accident or violence which produced the fatal injury (<a href="#who2022death">World Health Organization 2022<i>a</i></a>, <a href="#NationalRecordsofScotlandCOD">National Records of Scotland 2019</a>). If the certifying medical personnel cannot choose a single underlying COD, NRS uses the internationally agreed mortality coding rules in the ICD-10 standard to select the underlying cause of death <a href="#Calderwood2018CertOfDeath">(Calderwood, C. & Slater, A. 2018)</a>. Additionally, up to ten contributory CODs may be recorded. These are listed in ascending order based on their location within the series of events leading to death, with the first recorded as <tt>COD0</tt> and the last recorded under <tt>COD9</tt>.
     </details>
       <details>
 <summary><b><i>General Practice Local Enhanced Services (GP LES)</i></b></summary>
@@ -55,7 +55,7 @@ Scottish Morbidity Records are Tier 1 datasets containing individual-level healt
 <br/><br/>
 <details>
 <summary>SMR00 - Outpatient Appointments & Attendance</summary>
-  [!NOTE] It is Recommended to avoid using diagnostic or procedural information from SMR00
+  [!NOTE] It is recommended to avoid using diagnostic or procedural information from SMR00
   <br></br>
   SMR00 contains information on outpatient appointments, attendance, and procedures performed. A record is generated when a patient either has outpatient clinical interaction or when the patient meets with a healthcare provider responsible for care outwith an outpatient clinic session \citep{SMR00nd}. The value of SMR00 lies in tracking patient contact with a specialist. Unfortunately, this rarely includes information on diagnosis or procedures.
 </details>
@@ -204,10 +204,16 @@ Useful links:
 The contents of this page have been adapted and extended from my PhD thesis: 
 Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and its relationship to the diagnosis of heart failure and to prognosis. PhD, University of Glasgow. 
 <br></br>
-
+  
+<p id="Calderwood2018CertOfDeath"> Calderwood, C. & Slater, A. (2018), ‘Guidene for doctors completing medical certificates of the cause of death (MCCD) and its quality assurance’. URL: https://www.gov.scot/publications/medical-certificates-of-cause-of-death-guidanceon-completion/. Accessed: 16 September 2022
+  
 <p id="NHSDigChi2022"> NHS Digital (2022<i>a</i>), ‘Community Health Index Number’. URL: https://www.datadictionary.nhs.uk/attributes/community_health_index_number.html. Accessed: 2 October 2022
 
 <p id="NHSChind"> NHS National Services Scotland (nd<i>a</i>), ‘CHI number’. URL: https://www.ndc.scot.nhs.uk/Dictionary-AZ/Definitions/index.asp?Search=C&ID=128&Title=CHI%20Number. Accessed: 2 October 2022
+
+<p id="NRS_DeathsBackground"> National Records of Scotland (2017), ‘Vital events - deaths - background information’. URL: https://www.nrscotland.gov.uk/files/statistics/vital-events/coding-causes-of-death.pdf. Accessed: 19 June 2022.
+
+<p id="NationalRecordsofScotlandCOD"> National Records of Scotland (2019), ‘The medical certificate of the cause of death’. URL: https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/vitalevents/deaths/deaths-background-information/death-certificates-and-coding-the-causes-ofdeath/the-medical-certificate-of-the-cause-of-death. Accessed: 11 September 20122
 
 <p id="sh2012"> NHS Research Scotland (2012<i>a</i>), ‘Data Safe Haven’. URL: https://www.nhsresearchscotland.org.uk/research-in-scotland/data/safe-havens. Accessed: 3 October 2022.
   
@@ -216,5 +222,9 @@ Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and it
 <p id="charterSH2015"> The Scottish Government (2015), ‘Charter for Safe Havens in Scotland: Handling unconsented data from National Health Service patient records to support research and statistics.’. URL: https://www.gov.scot/publications/charter-safe-havens-scotland-handling-unconsented-datanational-health-service-patient-records-support-research-statistics/documents/. Accessed: 3 October 2022.
 
 <p id="Watson2020"> Watson, S. (2020), ‘Safe Haven’. URL: https://www.quest.scot.nhs.uk/hc/en-gb/articles/115005312709-Safe-Haven. Accessed: 19 April 2022.
+
+<p id="who2022death"> World Health Organization (2022<i>a</i>), ‘Cause of death’. URL:https://www.who.int/standards/classifications/classification-of-diseases/cause-of-death. Accessed: 16 September 2022.
+
+  
 </details>
 
