@@ -44,7 +44,7 @@ Useful link: https://www.gov.scot/collections/scottish-index-of-multiple-depriva
     </details>
       <details>
 <summary><b><i>General Practice Local Enhanced Services (GP LES)</i></b></summary>
-       <p> [!NOTE] Ccogerage ended in 2018. </p>
+       <p> [!NOTE] Coverage ended in 2018. </p>
  Local Enhanced Services (LES) for general practice surgeries (GPs) is a service for which general practice surgeries receive additional payments for demonstrating a high-quality service for specific conditions, including coronary heart disease, diabetes mellitus, stroke, chronic obstructive pulmonary disease, heart failure with reduced ejection fraction (but not heart failure with preserved ejection fraction), learning disabilities, and nationally enhanced services for drug misuse. Surgeries can subscribe to any number of the LES, without covering every service. The GPLES is a dataset which contains information about patients who received care under the LES scheme. Of note, coverage ended in 2018. 
 
 Each GPLES record contains a <tt>safehavenID</tt>, the event date (<tt>EventDate</tt>), a Read code describing the entry (<tt>READCODE</tt>), a user-editable description to complement said code (<tt>Description</tt>), a flag for if the record pertains to a prescription (<tt>IsPrescription</tt>), a flag for if the record pertains to numerical values (<tt>IsValue</tt>), two value fields (<tt>Value1</tt> and <tt>Value2</tt>), the local enhanced service area (e.g., 3 for diabetes and 4 for congestive heart failure) (<tt>LESAreaID</tt>).
