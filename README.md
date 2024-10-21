@@ -132,7 +132,7 @@ Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Sco
 </details>
 
 <details>
-<summary><b>Data classification</b></summary>
+<summary><b>Data Classification</b></summary>
 <details>
 <summary><b><i>International Classification of Diseases, 10<sup>th</sup> revision (ICD-10)</i></b></summary><a name="sec-icd10"></a>
   The International Classification of Disease (ICD) was originally a system to classify causes of death but has since expanded its scope to include non-fatal diseases, medical procedures, impairments, disabilities and handicaps <a href="#whoicd2016">(World Health Organization 2016)</a>. The 10<sup>th</sup> revision was adopted by the WHO in May 1990 and went into effect on 1 January 1993 <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. More formally, the International Statistical Classification of Diseases and Related Health Problems, 10<sup>th</sup> Revision (ICD-10) coding standard is a hierarchical standard provided by the WHO to enable systematic health recording and collection of statistics on disease in primary, secondary, tertiary care, and death certificates internationally and over time <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. The codes translate potentially complicated medical diagnoses and other health problems into a finite set of alphanumeric codes, permitting easy storage and analysis <a href="#whoicd2016">(World Health Organization 2016)</a>. 
@@ -156,7 +156,7 @@ Useful link: Classification browser OPCS-4.10: https://classbrowser.nhs.uk/#/boo
 </details>
 <details>
 <summary><b><i>Read Codes</i></b></summary>
-Read Codes are a hierarchical controlled clinical vocabulary for terms and short phrases (<a href="#Robinson1997">Robinson et al. 1997</a>, <a href="#Pringle1990">Pringle 1990</a>, <a href="#Chisholm1990">Chisholm 1990</a>). The first widely used version of Read Codes was standardised to 4-byte set codes, which was then extended to a 5-byte unified set. Version 2 added a term code to hold an <tt>idea</tt> or <tt>concept</tt>, where the preferred term appends '00' and additional synonyms append term codes 11-99 \citep{Booth1994}. For example, if the original 5-byte Read Code was 'G30..' for acute myocardial infarction, the 5-byte version 2 code, with the preferred term code, is 'G30..00' for 'Acute myocardial infarction' and the first synonym, 'Attack - heart' for heart attack, is 'G30..11', followed by 'Coronary thrombosis', 'G30..12'. 
+Read Codes are a hierarchical controlled clinical vocabulary for terms and short phrases (<a href="#Robinson1997">Robinson et al. 1997</a>, <a href="#Pringle1990">Pringle 1990</a>, <a href="#Chisholm1990">Chisholm 1990</a>). The first widely used version of Read Codes was standardised to 4-byte set codes, which was then extended to a 5-byte unified set. Version 2 added a term code to hold an <tt>idea</tt> or <tt>concept</tt>, where the preferred term appends '00' and additional synonyms append term codes 11-99  <a href="#Booth1994">(Booth 1994)</a>. For example, if the original 5-byte Read Code was 'G30..' for acute myocardial infarction, the 5-byte version 2 code, with the preferred term code, is 'G30..00' for 'Acute myocardial infarction' and the first synonym, 'Attack - heart' for heart attack, is 'G30..11', followed by 'Coronary thrombosis', 'G30..12'. 
 The WoS's GP LES dataset uses the 5-byte set of codes without the term code, which means synonyms are mapped onto the same five-digit code. For example, 'G580.00', 'Congestive heart failure', and 'G580.11', 'Congestive cardiac failure' both map onto 'G580.'. Additionally, trailing space holders (.) have been removed due to formatting errors or deliberate elimination. This means 'G580.11' maps to 'G580' and 'G58..00', and 'heart failure' maps to 'G58'. 
   <br></br>
 
@@ -166,7 +166,7 @@ The WoS's GP LES dataset uses the 5-byte set of codes without the term code, whi
 </details>
 <details>
 <summary><b><i>British National Formulary (BNF)</i></b></summary>
-The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF that the medication is from. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with '02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with '0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and its formulation (see below for a breakdown of a 9-character BNF code).
+The first nine characters of the BNF code specify the chemical level of the medication. Within these nine characters, the first two characters indicate the chapter of the BNF from which the medication is taken. For example, drugs in BNF Chapter 2 (Cardiovascular System) will always begin with '02'. The code is then further subdivided into sections (e.g., Diuretics, contained within Chapter 2 Section 2 of the BNF, all begin with '0202'). The remaining six characters provide more detailed information about the medication, including whether the product is branded or generic, its strength, and its formulation (see below for a breakdown of a 9-character BNF code).
   <p>
   <img src="references/BNF Code_v2.png", width=400 alt>
   
@@ -174,7 +174,7 @@ The first nine characters of the BNF code specify the chemical level of the medi
 </p>
 <br></br>
 <b>Classifying Prescriptions</b>
-There are two primary ways to classify prescriptions. The first, and most straightforward way, is to classify prescriptions using the BNF Chapter, Section, or Paragraph. The benefit of this classification mechanism is that it easily groups medications without incorporating potential selection bias or classification errors. However, combination medications are often in a separate paragraph from the constituent chemicals. 
+There are two primary ways to classify prescriptions. The first and most straightforward way is to classify prescriptions using the BNF Chapter, Section, or Paragraph. The benefit of this classification mechanism is that it easily groups medications without incorporating potential selection bias or classification errors. However, combination medications are often in a separate paragraph from the constituent chemicals. 
 <br></br>
 
 The alternative is to classify medications based on their active chemicals, meaning that loop diuretics would include all medications which included a member of the loop diuretic family:
@@ -207,6 +207,8 @@ Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and it
 <br></br>
 
 <p id="Alvarez-Madrazo2016"> Alvarez-Madrazo, S., McTaggart, S., Nangle, C., Nicholson, E. & Bennie, M. (2016), ‘Data resource profile: The Scottish National Prescribing Information System (PIS)’, International Journal of Epidemiology 45(3), 714–715f. URL: https://doi.org/10.1093/ije/dyw060
+
+<p id="Booth1994"> Booth, N. (1994), ‘What are the Read Codes?’, Health Libraries Review 11(3), 177–182. URL: https://onlinelibrary.wiley.com/doi/abs/10.1046/j.1365-2532.1994.1130177.x
   
 <p id="Calderwood2018CertOfDeath"> Calderwood, C. & Slater, A. (2018), ‘Guidene for doctors completing medical certificates of the cause of death (MCCD) and its quality assurance’. URL: https://www.gov.scot/publications/medical-certificates-of-cause-of-death-guidanceon-completion/. Accessed: 16 September 2022
 
