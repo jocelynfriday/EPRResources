@@ -191,6 +191,7 @@ The WoS's GP LES dataset uses the 5-byte set of codes without the term code, whi
   Useful links: 
   * Code lists (published, but use with care): https://clinicalcodes.rss.mhs.man.ac.uk/
   * HDRUK Phenotype Library (published, but use with care): https://phenotypes.healthdatagateway.org/
+  * Read Code to SNOMED CT maps, it helpfully separates the v2 Read Code from the term code: https://nhsengland.kahootz.com/t_c_home/viewDatastore?datviewmode=list&nexturl=&sortdir1=asc&showsingleitem=N&sourcedsid=&dsid=407588&objectid=407588&exp=e1&showallcolumns=N&sortcol1=col_0&ajaxmode=&sortcol2=&cardcolno=&sort=&shownum=10&sortdir3=&sortcol3=&sortdir2=&showadvancedsearch=N&adv=&rowid=&action=&sel=&search=g58&btn_search=
 </details>
 <details>
 <summary><b><i>British National Formulary (BNF)</i></b></summary>
