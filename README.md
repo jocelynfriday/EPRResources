@@ -250,7 +250,7 @@ Relational databases are a convenient way to order, structure, and subset raw EP
   <em>An illustration of how the schemas are structured and interlinked to create research-ready tables.</em>
 </p>
 
-To this aim, schemas are structured from the raw data to analysis-ready in the order of <tt>staging</tt>, <tt>lookupTbl</tt>, <tt>cleaning</tt>, <tt>working</tt>, and <analysis>. If working directly with flat files, drop the <tt>staging</tt> schema. As an overview, the tables in staging hold the data as it arrives as the flat files provided by Safe Haven.  These tables assume that all columns contain varchars (or characters), a variable length series of numbers, letters, or characters, to limit forced or incorrect data conversion errors. The <tt>lookupTbl</tt> schema holds lookup tables that define various disease definitions, drug classifications, or measurement groupings. The cleaning schema refers to the cleaned data presented in the <tt>staging</tt> schema. The tables in working are long format tables that hold information about a given test, disease, or medical history. Finally, the analysis tables hold data that has been developed for input into a statistical software program for analysis. Going into detail per schema: in the <tt>cleaning</tt> schema, columns that have been correctly formatted (e.g. numeric values are now numeric and not strings, bit columns are now bits and not varchars, etc.). Unique row indexes (<tt>rowIndex</tt>) have been added to all tables, which remain with the record into the <tt>working</tt> tables. Row indexes are unique within each table but are reused between tables. Finally, columns have been added that apply to all values in each table. In cases where an event date and event time are stored in one column, these were split into separate date and time columns. Many of the tables will have an <tt>included</tt> column added, which indicates that a record should be excluded from future analysis for various reasons (e.g., impossible dates, null values, or numeric overflow errors).
+To this aim, schemas are structured from the raw data to analysis-ready in the order of <tt>staging</tt>, <tt>lookupTbl</tt>, <tt>cleaning</tt>, <tt>working</tt>, and <analysis>. If working directly with flat files, drop the <tt>staging</tt> schema. As an overview, the tables in staging hold the data as it arrives as the flat files provided by Safe Haven.  These tables assume that all columns contain varchars (or characters), a variable length series of numbers, letters, or characters, to limit forced or incorrect data conversion errors. The <tt>lookupTbl</tt> schema holds lookup tables that define various disease definitions, drug classifications, or measurement groupings. The cleaning schema refers to the cleaned data presented in the <tt>staging</tt> schema. The tables in working are long format tables that hold information about a given test, disease, or medical history. Finally, the analysis tables hold data that has been developed for input into a statistical software program for analysis. Going into detail per schema: in the <tt>cleaning</tt> schema, columns that have been correctly formatted (e.g. numeric values are now numeric and not strings, bit columns are now bits and not varchars, etc.). Unique row indexes (<tt>rowIndex</tt>) have been added to all tables, which remain with the record in the <tt>working</tt> tables. Row indexes are unique within each table but are reused between tables. Finally, columns have been added that apply to all values in each table. In cases where an event date and event time are stored in one column, these were split into separate date and time columns. Many of the tables will have an <tt>included</tt> column added, which indicates that a record should be excluded from future analysis for various reasons (e.g., impossible dates, null values, or numeric overflow errors).
 <br></br>
 Tables within the <tt>working</tt> schema hold all records pertaining to its particular condition or measurement. To create these tables, records from the cleaning schema were parsed into long format tables with the help of the lookup tables in the <tt>lookupTbl</tt> schema. Tables that begin with ‘Mentioned’ hold all coded references to that disease. Tables in the working schema that do not begin with ‘Mentioned’ hold all lab records for the named test or measurement. For example, the <tt>working.MentionedIHD</tt> table holds all coded references of ischaemic heart disease while <tt>working.Haemoglobin</tt> holds all haemoglobin test records regardless of anaemia status.
 <br></br>
@@ -260,7 +260,38 @@ Python is the most common scripting language used within the trusted research en
 <br></br>
 R, STATA, and SAS are the most commonly used statistical languages. 
 </details>
+<details>
+<summary><b><i>Deriving Useful Variables</i></b></summary>
+  The following derivations were used for the analysis contained within <a href="#Friday2024">'Loop diuretic therapy with or without heart failure: impact on prognosis' by Friday et al.</a>
+<details>
+<summary>Defining Hospital Admissions</summary><a name="sec-hospAdmit"></a>
+The length and number of hospital admissions both reflect the severity of the disease and the resources expended. Unique hospital admissions should be identified and grouped from the recorded episodes of care in both SMR01 and SMR04.
+<br></br>
+According to National Services Scotland, a continuous inpatient stay is defined as an unbroken period of time that a patient spends admitted in hospital <a href="#Redpath2018">(Redpath 2018)</a>. Taking into account the example provided in Redpath’s report and the lack of information on the time of day for discharges and re-admissions, a single hospital admission can be defined as the set of all episodes of care that differed by no more than one calendar day between one episode’s discharge and the subsequent episode’s admission date as shown by the green arrow in the figure below. This holds whether or not patients transferred between hospitals or NHS boards <a href="#Anwar2011">(Anwar et al. 2011)</a>. This is particularly important as many cardiac patients are transferred to and from the Golden Jubilee National Hospital for specialist care. If two episodes of care differ by at least one day, these two episodes are considered to belong to different hospital stays, and the event is classified as a new
+admission (see the blue arrow below). Hospital admissions were identified and labelled with unique identification numbers, <tt>hospStayID</tt>, within SMR01 and SMR04. 
+  <p>
+  <img src="references/SMR01_example_v1_20211011.png", width=900 alt>
+  
+  <em>A synthetic example of admission and discharge information contained in the Scottish Morbidity Records General/Acute Inpatient and Day Case (SMR01) episodes of care. Episodes of care are considered part of the same hospital stay if the difference between an admission and discharge dates was at most one day (green arrow), regardless of the hospital; otherwise, the records were considered from two different admissions (blue arrow). This allows for a transfer at 11:30 p.m. with an arrival after midnight to be registered as the same admission.</em>
+</p>
+The length of hospital admission is usually defined as the difference between the first admission date and the last discharge date for each hospStayID. This value is recorded in the <tt>lenOfStay</tt>
+field. It is important to check the <tt>lenOfStay</tt>, as it is possible to get extremely long stays (> 5 years).  Depending on the project, excluding these patients is advisable; such a length of stay in an acute hospital is improbable, and if true, they would not have received any community-dispensed prescriptions, making pharmacoepidemiological analysis difficult.
+</details>
+<details>
+<summary>Identifying First Record of Stay</summary><a name="sec-hospAdmit"></a>
+  
+For hospital admissions spanning more than one episode of care (see above for the definition of continuous hospital admission), hospital episodes need to be ordered within an admission in order to identify the admission reason. The pragmatic approach to doing this was to rank episodes of care  to prioritise earliest dates, most urgent admission reason, and transfer to other institutions over discharges home or death to find the most probable first episode of care. 
+This can be done using the following logic:
+  1. Prefer the earliest admission date (rank <tt>ADMDATE</tt> in ascending order).
+  2. Prefer an admission/transfer from a private residence before admission from an institution or a transfer within the same health board/health care provider (rank <tt>ADMTRANS</tt> in ascending order).
+  3. Prefer emergency admissions over urgent or routine admissions (rank <tt>ADMTYPE</tt> in descending order).
+  4. Prefer a discharge/transfer to another health board/ health care provider before an institution, private residence, or finally death (rank <tt>DISTRANS</tt> in descending order).
+  5. Prefer the earliest discharge date (rank <tt>DISDATE</tt> in ascending order).
+  6. Prefer missing admission reasons, as it is the most common, followed by an acute admission with no additional detail added, then admission for treatment, pre-operative preparation, and so on, finishing with geriatric palliative care (rank <tt>ADMREAS</tt> in ascending order).
 
+Using the above logic, the reference admission flag (<tt>refAdmit</tt>) is set to 1 for the highest-ranked episode of care, while the other episodes are given a 0 flag.
+</details>
+</details>
 </details>
 <details>
 <summary><b>References</b></summary>
@@ -270,11 +301,15 @@ Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and it
 
 <p id="Alvarez-Madrazo2016"> Alvarez-Madrazo, S., McTaggart, S., Nangle, C., Nicholson, E. & Bennie, M. (2016), ‘Data resource profile: The Scottish National Prescribing Information System (PIS)’, International Journal of Epidemiology 45(3), 714–715f. URL: https://doi.org/10.1093/ije/dyw060
 
+<p id="Anwar2011">Anwar, H., Fischbacher, C. M., Leese, G. P., Lindsay, R. S., McKnight, J. A., Wild, S. H. & on behalf of the Scottish Diabetes Research Network Epidemiology Group (2011), ‘Assessment of the under-reporting of diabetes in hospital admission data: a study from the Scottish Diabetes Research Network Epidemiology Group’, Diabetic Medicine 28(12), 1514–1519. URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1464-5491.2011.03432.x
+
 <p id="Booth1994"> Booth, N. (1994), ‘What are the Read Codes?’, Health Libraries Review 11(3), 177–182. URL: https://onlinelibrary.wiley.com/doi/abs/10.1046/j.1365-2532.1994.1130177.x
   
 <p id="Calderwood2018CertOfDeath"> Calderwood, C. & Slater, A. (2018), ‘Guidene for doctors completing medical certificates of the cause of death (MCCD) and its quality assurance’. URL: https://www.gov.scot/publications/medical-certificates-of-cause-of-death-guidanceon-completion/. Accessed: 16 September 2022
 
 <p id="Chisholm1990"> Chisholm, J. (1990), ‘The Read clinical classification’, BMJ (Clinical research ed.) 300(6732), 1092–1092. URL: https://www.bmj.com/content/300/6732/1092
+
+<p id="Friday2024">Friday, J.M., Cleland, J.G., Pellicori, P., Wolters, M., McMurray, J.J., Jhund, P.S., Forsyth, P., McAllister, D.A., Graham, F.J., Jones, Y. and Lewsey, J., 2024. Loop diuretic utilisation with or without heart failure: impact on prognosis. European Heart Journal, p.ehae345.
 
 <p id="pis2022"> Information Services Division Scotland (2022a), ‘Prescribing Information System (PIS)’. URL: https://www.ndc.scot.nhs.uk/National-Datasets/data.asp?SubID=9. Accessed: 10 January 2023
 
@@ -319,11 +354,13 @@ URL: https://www.isdscotland.org/Products-and-Services/Data-Quality/docs/Assessm
   
 <p id="PHS2019"> Public Health Scotland (2019), Assessment of SMR01 (Acute Inpatient and Day Case) data Scotland 2019-2020, Public Health Scotland Report. URL: https://beta.isdscotland.org/media/7465/assessment-of-smr01-data-scotland-report-2019-v1.pdf. Accessed: 4 July 2022.
 
-<p id="Robinson1997"> Robinson, D., Schulz, E., Brown, P. & Price, C. (1997), ‘Updating the Read Codes: user-interactive maintenance of a dynamic clinical vocabulary’, Journal of the American Medical Informatics Association: JAMIA 4(6), 465–472. URL: https://academic.oup.com/jamia/article/4/6/465/786188
+<p id="Redpath2018"> Redpath, D. (2018), ‘Methodologies of counting patient continuous inpatient stays (CIS) using SMR01 inpatient data’. URL: https://www.isdscotland.org/About-ISD/Methodologies/_docs/CIS_COUNTING_-paper_V0%202.pdf. Accessed: 30 November 2022.
+
+<p id="Robinson1997"> Robinson, D., Schulz, E., Brown, P. & Price, C. (1997), ‘Updating the Read Codes: user-interactive maintenance of a dynamic clinical vocabulary’, Journal of the American Medical Informatics Association: JAMIA 4(6), 465–472. URL: https://academic.oup.com/jamia/article/4/6/465/786188,
 
 <p id="rothman2021">Rothman, K. J. et al. (2021), Modern Epidemiology, 4 edn, Wolters Kluwer.
   
-<p id="Executive2012"> The Scottish Government (2012), ‘The Scottish Index of Multiple Deprivation 2012’. URL: https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2012/12/scottish-index-multiple-deprivation-2012-executive-summary/documents/scottishindex-multiple-deprivation-2012-executive-summary/scottish-index-multiple-deprivation-2012-executive-summary/govscot%3Adocument/00410895.pdf 
+<p id="Executive2012"> The Scottish Government (2012), ‘The Scottish Index of Multiple Deprivation 2012’. URL: https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2012/12/scottish-index-multiple-deprivation-2012-executive-summary/documents/scottishindex-multiple-deprivation-2012-executive-summary/scottish-index-multiple-deprivation-2012-executive-summary/govscot%3Adocument/00410895.pdf. 
 
 <p id="charterSH2015"> The Scottish Government (2015), ‘Charter for Safe Havens in Scotland: Handling unconsented data from National Health Service patient records to support research and statistics.’. URL: https://www.gov.scot/publications/charter-safe-havens-scotland-handling-unconsented-datanational-health-service-patient-records-support-research-statistics/documents/. Accessed: 3 October 2022.
 
@@ -331,8 +368,7 @@ URL: https://www.isdscotland.org/Products-and-Services/Data-Quality/docs/Assessm
 
 <p id="williams2016making"> Williams, R., Brown, B., Peek, N. & Buchan, I. (2016), ‘Making medication data meaningful: illustrated with hypertension’, Studies in health technology and informatics 228, 247–251.
 
-
-<p id="whoicd2016"> World Health Organization (2016), International statistical classification of diseases and related health problems - 10th revision, Vol. 3, 5th edn, World Health Organization, France. URL: https://apps.who.int/iris/bitstream/10665/246208/1/9789241549165-V1-eng.pdf
+<p id="whoicd2016"> World Health Organization (2016), International statistical classification of diseases and related health problems - 10th revision, Vol. 3, 5th edn, World Health Organization, France. URL: https://apps.who.int/iris/bitstream/10665/246208/1/9789241549165-V1-eng.pdf.
 
 <p id="who2022death"> World Health Organization (2022<i>a</i>), ‘Cause of death’. URL:https://www.who.int/standards/classifications/classification-of-diseases/cause-of-death. Accessed: 16 September 2022.
 
