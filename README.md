@@ -190,7 +190,7 @@ The WoS's GP LES dataset uses the 5-byte set of codes without the term code, whi
 
   Useful links: 
   * Code lists (published, but use with care): https://clinicalcodes.rss.mhs.man.ac.uk/
-  * HDRUK Phenotype Library (published, but use with care): https://phenotypes.healthdatagateway.org/
+  * HDRUK Phenotype Library (published, but used with care): https://phenotypes.healthdatagateway.org/
   * Read Code to SNOMED CT maps, it helpfully separates the v2 Read Code from the term code: https://nhsengland.kahootz.com/t_c_home/viewDatastore?datviewmode=list&nexturl=&sortdir1=asc&showsingleitem=N&sourcedsid=&dsid=407588&objectid=407588&exp=e1&showallcolumns=N&sortcol1=col_0&ajaxmode=&sortcol2=&cardcolno=&sort=&shownum=10&sortdir3=&sortcol3=&sortdir2=&showadvancedsearch=N&adv=&rowid=&action=&sel=&search=g58&btn_search=
 </details>
 <details>
@@ -230,6 +230,39 @@ Useful links:
 </details>
 </details>  
 <details>
+<summary><b>General Tips</b></summary>
+The following includes some general information for visualising how the flat files fit together and tips for harmonising data into coherent variables. 
+<details>
+<summary><b><i>Data Cleaning and Preparation</i></b></summary>
+The data provided by the different safe havens are classified as 'real-world' data, and the files provided require formatting, preparation and cleaning based on the research question. These steps are an iterative and time-intensive process of exploration and experimentation <a href="#Lohr2014">Lohr 2014</a>. In particular, data cleaning is where the raw data are checked for accuracy, consistency, and completeness. This includes careful scrutiny of the raw data for outright errors and correction of errors where possible <a href="#rothman2021">Rothman et al. 2021</a>. 
+<br></br>
+In conjunction with data cleaning, the creation of a research-quality dataset entails refining which data are used and how they are structured in order to facilitate answering the research question(s) <a href="#Leek2019">Leek 2019</a>. Particular attention must be paid to the required data format by downstream tools, level of required data granularity, ease of manipulation and use, validity and accuracy underlying the data collection, and documentation of potential biases <a href="#Leek2019">Leek 2019</a>. This process occurs in tandem with combining the relevant and required data points needed to answer said question(s).
+<br></br>
+The main tools often used for data cleaning and preparation include relational databases, statistical software, and, potentially, a scripting language (e.g., Python).    
+<br></br>
+
+<summary>Relational Databses</summary>
+Relational databases are a convenient way to order, structure, and subset raw EPR into 'research-ready' tables for statistical analysis. The EPR data made available to researchers come in comma-separated value (CSV) files. Each file contains information from a separate data source (i.e., death records, community-based prescriptions, laboratory records, hospital admissions). When moving from raw data to research-ready tables, I tend to organise databases and tables using schemas, which are used to communicate the architecture of the database.  
+  
+  <p>
+  <img src="references/schemaDiagram.png", width=900 alt>
+  
+  <em>An illustration of how the schemas are structured and interlinked to create research-ready tables.</em>
+</p>
+
+To this aim, schemas are structured from the raw data to analysis-ready in the order of <tt>staging</tt>, <tt>lookupTbl</tt>, <tt>cleaning</tt>, <tt>working</tt>, and <analysis>. If working directly with flat files, drop the <tt>staging</tt> schema. As an overview, the tables in staging hold the data as it arrives as the flat files provided by Safe Haven.  These tables assume that all columns contain varchars (or characters), a variable length series of numbers, letters, or characters, to limit forced or incorrect data conversion errors. The <tt>lookupTbl</tt> schema holds lookup tables that define various disease definitions, drug classifications, or measurement groupings. The cleaning schema refers to the cleaned data presented in the <tt>staging</tt> schema. The tables in working are long format tables that hold information about a given test, disease, or medical history. Finally, the analysis tables hold data that has been developed for input into a statistical software program for analysis. Going into detail per schema: in the <tt>cleaning</tt> schema, columns that have been correctly formatted (e.g. numeric values are now numeric and not strings, bit columns are now bits and not varchars, etc.). Unique row indexes (<tt>rowIndex</tt>) have been added to all tables, which remain with the record into the <tt>working</tt> tables. Row indexes are unique within each table but are reused between tables. Finally, columns have been added that apply to all values in each table. In cases where an event date and event time are stored in one column, these were split into separate date and time columns. Many of the tables will have an <tt>included</tt> column added, which indicates that a record should be excluded from future analysis for various reasons (e.g., impossible dates, null values, or numeric overflow errors).
+<br></br>
+Tables within the <tt>working</tt> schema hold all records pertaining to its particular condition or measurement. To create these tables, records from the cleaning schema were parsed into long format tables with the help of the lookup tables in the <tt>lookupTbl</tt> schema. Tables that begin with ‘Mentioned’ hold all coded references to that disease. Tables in the working schema that do not begin with ‘Mentioned’ hold all lab records for the named test or measurement. For example, the <tt>working.MentionedIHD</tt> table holds all coded references of ischaemic heart disease while <tt>working.Haemoglobin</tt> holds all haemoglobin test records regardless of anaemia status.
+<br></br>
+The <tt>analysis</tt> schema holds tables which are ready to be imported into the statistical software for analysis and visualisation.
+<summary>Scripting and Statistical Languages</summary>
+Python is the most common scripting language used within the trusted research environment.  Of note, Python is typically used within Spyder or Jupyter Notebooks without access to a command line for governance reasons. 
+<br></br>
+R, STATA, and SAS are the most commonly used statistical languages. 
+</details>
+
+</details>
+<details>
 <summary><b>References</b></summary>
 The contents of this page have been adapted and extended from my PhD thesis: 
 Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and its relationship to the diagnosis of heart failure and to prognosis. PhD, University of Glasgow. 
@@ -250,6 +283,10 @@ Friday, J. M. 2023. The pharmaco-epidemiology of loop diuretic dispensing and it
 <p id="Khand2005"> Khand, A. U., Shaw, M., Gemmel, I. & Cleland, J. G. (2005), ‘Do discharge codes underestimate hospitalisation due to heart failure? Validation study of hospital discharge coding for heart failure’, Eur J Heart Fail 7(5), 792–7. URL: https://www.ncbi.nlm.nih.gov/pubmed/16054867
 
 <p id="Livingstone2012"> Livingstone, S. J., Looker, H. C., Hothersall, E. J., Wild, S. H., Lindsay, R. S., Chalmers, J., Cleland, S., Leese, G. P., McKnight, J., Morris, A. D., Pearson, D. W. M., Peden, N. R., Petrie, J. R., Philip, S., Sattar, N., Sullivan, F. & Colhoun, H. M. (2012), ‘Risk of cardiovascular disease and total mortality in adults with type 1 diabetes: Scottish registry linkage study’, PLOS Medicine 9(10), 1–11. URL: https://doi.org/10.1371/journal.pmed.1001321
+
+<p id="Leek2019"> Leek, J. (2019), ‘Research quality data and research quality databases’. URL: https://simplystatistics.org/posts/2019-05-29-research-quality-data-and-researchquality-databases/ Accessed: 21 April 2022
+
+<p id="Lohr2014"> Lohr, S. (2014), ‘For big-data scientists, ‘janitor work’ is key hurdle to insights’. URL: http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html Accessed: 5 June 2022
   
 <p id="opcsNHSDigital2019"> NHS Digital (2019), ‘DCB0084: OPCS Classification of Interventions and Procedures’. URL: https://digital.nhs.uk/data-and-information/information-standards/information-standardsand-data-collections-including-extractions/publications-and-notifications/standards-andcollections/dcb0084-opcs-classification-of-interventions-and-procedures. Accessed: 26 September 2022
 
@@ -283,6 +320,8 @@ URL: https://www.isdscotland.org/Products-and-Services/Data-Quality/docs/Assessm
 <p id="PHS2019"> Public Health Scotland (2019), Assessment of SMR01 (Acute Inpatient and Day Case) data Scotland 2019-2020, Public Health Scotland Report. URL: https://beta.isdscotland.org/media/7465/assessment-of-smr01-data-scotland-report-2019-v1.pdf. Accessed: 4 July 2022.
 
 <p id="Robinson1997"> Robinson, D., Schulz, E., Brown, P. & Price, C. (1997), ‘Updating the Read Codes: user-interactive maintenance of a dynamic clinical vocabulary’, Journal of the American Medical Informatics Association: JAMIA 4(6), 465–472. URL: https://academic.oup.com/jamia/article/4/6/465/786188
+
+<p id="rothman2021">Rothman, K. J. et al. (2021), Modern Epidemiology, 4 edn, Wolters Kluwer.
   
 <p id="Executive2012"> The Scottish Government (2012), ‘The Scottish Index of Multiple Deprivation 2012’. URL: https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2012/12/scottish-index-multiple-deprivation-2012-executive-summary/documents/scottishindex-multiple-deprivation-2012-executive-summary/scottish-index-multiple-deprivation-2012-executive-summary/govscot%3Adocument/00410895.pdf 
 
