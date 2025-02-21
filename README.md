@@ -145,7 +145,7 @@ Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Sco
    [!NOTE] Failed runs and impossible values are included.  Make sure to remove biologically implausible test results. 
 
 <b>Serum Creatinine and Estimated Glomerular Filtration Rate</b>
-       Creatinine is a waste product from muscle tissue. Normal serum levels are based predominantly on an individual's age and sex; high levels indicate impaired renal function. Serum Creatinine values were identified using the <tt>CLINICALCODEVALUE</tt> `44J3.'. It is commonly used to estimate renal function as the main component in calculating the estimated glomerular filtration rate (eGFR). It is recommended to calculate the eGFR values directly from the serum creatinine rather than using the recorded eGFR values, as these recorded values are capped at 60 ml/min/1.73m<sup>2</sup> when values surpass this, and not all recorded serum creatinine values have mapped eGFR value.  To calculate eGFR, one must assume that the serum creatinine values were standardised using isotope dilution mass spectrometry. 
+       Creatinine is a waste product from muscle tissue. Normal serum levels are based predominantly on an individual's age and sex; high levels indicate impaired renal function. Serum Creatinine values were identified using the <tt>CLINICALCODEVALUE</tt> '44J3.'. It is commonly used to estimate renal function as the main component in calculating the estimated glomerular filtration rate (eGFR). It is recommended to calculate the eGFR values directly from the serum creatinine rather than using the recorded eGFR values, as these recorded values are capped at 60 ml/min/1.73m<sup>2</sup> when values surpass this, and not all recorded serum creatinine values have mapped eGFR value.  To calculate eGFR, one must assume that the serum creatinine values were standardised using isotope dilution mass spectrometry. 
  </details>
 </details>
 
@@ -241,7 +241,7 @@ In conjunction with data cleaning, the creation of a research-quality dataset en
 The main tools often used for data cleaning and preparation include relational databases, statistical software, and, potentially, a scripting language (e.g., Python).    
 <br></br>
 
-<summary>Relational Databses</summary>
+<summary>Relational Databses</summary><a name="sec-relDatabase"></a>
 Relational databases are a convenient way to order, structure, and subset raw EPR into 'research-ready' tables for statistical analysis. The EPR data made available to researchers come in comma-separated value (CSV) files. Each file contains information from a separate data source (i.e., death records, community-based prescriptions, laboratory records, hospital admissions). When moving from raw data to research-ready tables, I tend to organise databases and tables using schemas, which are used to communicate the architecture of the database.  
   
   <p>
@@ -278,7 +278,7 @@ The length of hospital admission is usually defined as the difference between th
 field. It is important to check the <tt>lenOfStay</tt>, as it is possible to get extremely long stays (> 5 years).  Depending on the project, excluding these patients is advisable; such a length of stay in an acute hospital is improbable, and if true, they would not have received any community-dispensed prescriptions, making pharmacoepidemiological analysis difficult.
 </details>
 <details>
-<summary>Identifying First Record of Stay</summary><a name="sec-hospAdmit"></a>
+<summary>Identifying First Record of Stay</summary><a name="sec-firstRec"></a>
   
 For hospital admissions spanning more than one episode of care (see above for the definition of continuous hospital admission), hospital episodes need to be ordered within an admission in order to identify the admission reason. The pragmatic approach to doing this was to rank episodes of care  to prioritise earliest dates, most urgent admission reason, and transfer to other institutions over discharges home or death to find the most probable first episode of care. 
 This can be done using the following logic:
@@ -290,6 +290,28 @@ This can be done using the following logic:
   6. Prefer missing admission reasons, as it is the most common, followed by an acute admission with no additional detail added, then admission for treatment, pre-operative preparation, and so on, finishing with geriatric palliative care (rank <tt>ADMREAS</tt> in ascending order).
 
 Using the above logic, the reference admission flag (<tt>refAdmit</tt>) is set to 1 for the highest-ranked episode of care, while the other episodes are given a 0 flag.
+</details>
+<details>
+<summary>Defining Ethnicity Variable</summary><a name="sec-ethnicity"></a>
+As mentioned in the Demographics section above, ethnicity is not included in the Demographics file. Instead, researchers need an algorithm to define it.  
+
+Ethnicity was recorded in multiple datasets, including the SMRs and SCI Diabetes. Each dataset has a different level of granularity (e.g., 'White' versus 'White - Scottish' or 'White - British'). To provide a level of standardisation across datasets, researchers tend to classify a patient's ethnicity as White, Black, Asian, Other, or Missing. Implement the following steps to define patient ethnicity as follows:
+1. Gather all references to patient ethnicity from the database, including the event date (i.e., <tt>ADMDATE</tt> or <tt>DATE</tt>) and <tt>safehavenID</tt>.
+2. Group ethnicity into Asian, Black, other, White, and missing (see table below for the list of codes)
+3. Assign the most recently recorded ethnicity group 'other' where the ethnicity is known.
+4. Assign all patients with no record of ethnicity as 'ethnicity missing'.
+   <br></br>
+   <p>
+ <em>Examples of ethnicity classifications to group the ethnicity values recorded across the various data sources.</em>
+ 
+|Ethnicity Classification | Recorded Ethnicity |
+|---|---|
+|Asian| <p> 'Any other Asian background' <p> 'Arab' <p> 'Arab, Arab Scottish or Arab British'<p> 'Bangladeshi' <p> 'Bangladeshi, Bangladeshi Scottish or Bangladeshi British'<p>'Chinese' <p> 'Chinese, Chinese Scottish Chinese British'<p> 'Indian' <p> 'Indian, Indian Scottish or Indian British'<p> 'Other - Asian, Asian Scottish or Asian British'<p> 'Other Asian, Asian Scottish or Asian British'<p> 'Pakistani'<p> 'Pakistani, Pakistani Scottish or Pakistani British'|
+|Black| <p> 'African' <p> 'African, African Scottish or African British' <p> 'Any other Black background' <p>'Black African'<p>'Black, Black Scottish or Black British'<p> 'Black Other'<p> 'Caribbean'<p> 'Caribbean, Caribbean Scottish or Caribbean British'<p> 'Other African'<p> 'Other - African, Caribbean or Black'<p> 'Other African, Caribbean or Black' <p>  'Other Caribbean or Black' |
+|White| <p> 'Any Other White background'<p> 'Any other white ethnic group' <p> 'British' <p> 'English'<p> 'Irish' <p> 'Northern Irish'<p> 'Welsh' <p> 'White' <p> 'White - British' <p> 'White - English'<p> 'White - Gypsy/Traveller' <p> 'White - Irish' <p> 'White - Northern Irish'<p> 'White - Other British'<p>'White - Other white ethnic group'<p> 'White - Polish' <p> 'White - Scottish'<p> 'White - Welsh'|
+|Other|<p> 'Any mixed or multiple ethnic groups'<p> 'Any other ethnic background'<p> 'Other - Other ethnic group' <p> 'Other ethnic group'<p> 'Other Ethnic group - Other'|
+|Missing| <p> NULL <p> 'Not Known' <p> 'Refused' item <p> 'Refused/ Not provided by patient' | 
+</p>
 </details>
 </details>
 </details>
