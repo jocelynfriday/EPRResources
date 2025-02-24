@@ -13,7 +13,7 @@ import sqlite3
     c) Edit the definition file as a text file to add ',classification' where classification is the medication class (e.g., thiazides or loop diuretics) 
     d) Do this for each medication class of interest (note, BNF codes may well be named more than once; this is fine and expected) 
     e) Create one master lookup table by appending these definitions, one after the other.  Only keep one header row, which should look like the following:
-        'code,term,is_included,classification'
+        'code,term,is_included,classification' """
 lookuptbl = pd.read_csv('file path.csv', encoding = 'latin1', sep = ',')
 
 #### Step 2: Split the lookup table into codes used to define medications to be included (lookupTblInc) and those that will be excluded (lookupTblExc). 
