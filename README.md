@@ -63,7 +63,7 @@ Useful link: https://www.gov.scot/collections/scottish-index-of-multiple-depriva
       <details>
 <summary><b><i>General Practice Local Enhanced Services (GP LES)</i></b></summary>
        <p> [!NOTE] Coverage ended in 2018. </p>
- Local Enhanced Services (LES) for general practice surgeries (GPs) is a service for which general practice surgeries receive additional payments for demonstrating a high-quality service for specific conditions, including coronary heart disease, diabetes mellitus, stroke, chronic obstructive pulmonary disease, heart failure with reduced ejection fraction (but not heart failure with preserved ejection fraction), learning disabilities, and nationally enhanced services for drug misuse. Surgeries can subscribe to any number of the LES, without covering every service. The GPLES is a dataset which contains information about patients who received care under the LES scheme. Of note, coverage ended in 2018. 
+ Local Enhanced Services (LES) for general practice surgeries (GPs) is a service for which general practice surgeries receive additional payments for demonstrating a high-quality service for specific conditions, including coronary heart disease, diabetes mellitus, stroke, chronic obstructive pulmonary disease, heart failure with reduced ejection fraction (but not heart failure with preserved ejection fraction), learning disabilities, and nationally enhanced services for drug misuse. Surgeries can subscribe to any number of the LES, without covering every service. The GPLES dataset contains information about patients who received care under the LES scheme. Of note, coverage ended in 2018. 
 
 Each GPLES record contains a <tt>safehavenID</tt>, the event date (<tt>EventDate</tt>), a Read code describing the entry (<tt>READCODE</tt>), a user-editable description to complement said code (<tt>Description</tt>), a flag for if the record pertains to a prescription (<tt>IsPrescription</tt>), a flag for if the record pertains to numerical values (<tt>IsValue</tt>), two value fields (<tt>Value1</tt> and <tt>Value2</tt>), the local enhanced service area (e.g., 3 for diabetes and 4 for congestive heart failure) (<tt>LESAreaID</tt>).
       </details>
@@ -93,6 +93,9 @@ Useful links:
 * SMR01 crib sheet:https://publichealthscotland.scot/media/24925/smr01_crib_270323.pdf
 * Explanation of data collection and validation: https://www.publichealthscotland.scot/publications/acute-hospital-activity-and-nhs-beds-information-quarterly/acute-hospital-activity-and-nhs-beds-information-quarterly-quarter-ending-31-december-2019/data-quality/
 * WoS SMR01 Data Package explanation: https://www.nhsggc.org.uk/media/251274/13-smr01-data-package.pdf
+</details>
+<details>
+<summary>SMR02</summary>
 </details>
 <details>
 <summary>SMR04 - Mental Health Inpatient & Day Cases</summary>
@@ -142,10 +145,13 @@ Scottish Care Information Store (SCI Store) is a Tier 2 dataset covering the Sco
    
  Useful link: WoS data package description: https://www.nhsggc.org.uk/media/251273/07-scistore-data-package.pdf
 
-   [!NOTE] Failed runs and impossible values are included.  Make sure to remove biologically implausible test results. 
-
-<b>Serum Creatinine and Estimated Glomerular Filtration Rate</b>
-       Creatinine is a waste product from muscle tissue. Normal serum levels are based predominantly on an individual's age and sex; high levels indicate impaired renal function. Serum Creatinine values were identified using the <tt>CLINICALCODEVALUE</tt> '44J3.'. It is commonly used to estimate renal function as the main component in calculating the estimated glomerular filtration rate (eGFR). It is recommended to calculate the eGFR values directly from the serum creatinine rather than using the recorded eGFR values, as these recorded values are capped at 60 ml/min/1.73m<sup>2</sup> when values surpass this, and not all recorded serum creatinine values have mapped eGFR value.  To calculate eGFR, one must assume that the serum creatinine values were standardised using isotope dilution mass spectrometry. 
+   [!NOTE] Failed runs and impossible values are included.  Make sure to remove biologically implausible test results.
+<details>
+  <summary>Specific Lab Test Information</summary>
+<b>Serum Creatinine and Estimated Glomerular Filtration Rate</b> Creatinine is a waste product from muscle tissue. Normal serum levels are based predominantly on an individual's age and sex; high levels indicate impaired renal function. Serum Creatinine values are identified using the <tt>CLINICALCODEVALUE</tt> '44J3.'. It is commonly used to estimate renal function as the main component in calculating the estimated glomerular filtration rate (eGFR). It is recommended to calculate the eGFR values directly from the serum creatinine rather than using the recorded eGFR values, as these recorded values are capped at 60 ml/min/1.73m<sup>2</sup> when values surpass this, and not all recorded serum creatinine values have mapped eGFR value.  To calculate eGFR, one must assume that the serum creatinine values were standardised using isotope dilution mass spectrometry. 
+<br></br>
+<b>Haemaglobin</b> Haemoglobin is a protein found in red blood cells that binds to and transports oxygen.  Its values are identified using the <tt>CLINICALCODEVALUE</tt> ‘423..’. Of note, results are recorded as either g/dL or g/L; therefore, all results must be standardised to a single unit before integrating into analyses. Additionally, there are a limited number of tests before 2010, and the values are notably different from those recorded from 2010 onwards. For these reasons, the suggestion would be to exclude values before 2010. 
+ </details>
  </details>
 </details>
 
