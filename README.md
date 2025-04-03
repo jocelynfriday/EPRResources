@@ -29,6 +29,7 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
 | Scottish Morbidity Records (SMR) | Scottish secondary care records| 
 | > SMR00 | Outpatient appointments & attendance |
 | > SMR01 | General/acute inpatient & day case | 
+| > SMR02 | Maternity inpatient & day case | 
 | > SMR04 | Mental health inpatient & day cases | 
 | Prescribing Information System (PIS) | Community-based dispensed prescriptions |
 | Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) | Scottish diabetes registry | 
@@ -95,11 +96,15 @@ Useful links:
 * WoS SMR01 Data Package explanation: https://www.nhsggc.org.uk/media/251274/13-smr01-data-package.pdf
 </details>
 <details>
-<summary>SMR02</summary>
+<summary>SMR02 - Maternity Inpatient & Day Case</summary>
+SMR02 collects data on all pregnancies, including maternal, pregnancy and infant characteristics. Data collection began in 1961 and has been >99% complete since the late 1970s. An SMR02 record is generated for patients receiving care in the Obstetrics Specialties/ Health Professions, including home births, both planned and unplanned. It includes maternal demographics, infant birthweight, gestational age, sex, apgar score and neonatal indicator, number of previous pregnancies, information on current pregnancy labour and delivery, and, more recently, maternal drug and alcohol use during pregnancy (and furthermore, prior to pregnancy in the case of injecting drug use). 
+
+Useful links:
+* SMR02 crib sheet: https://publichealthscotland.scot/media/24926/smr02_crib_270323.pdf
 </details>
 <details>
 <summary>SMR04 - Mental Health Inpatient & Day Cases</summary>
-  SMR04 contains information regarding mental health inpatient and day cases. The SMR04 dataset has a similar format to that of SMR01 with regard to the information provided. Data points are recorded within episodes of care and contain patient demographics, admission, discharge, and diagnostic information. However, in most cases, patients will be transferred to general hospitals to undergo procedures and medical intervention, which would be recorded in SMR01. For this reason, patients are still at risk of experiencing an SMR01 admission while receiving care under the purview of an SMR04 contributing facility. SMR04 admissions tend to be for more extended stays than are found in SMR01 admissions.
+  SMR04 contains information regarding mental health inpatient and day cases. The SMR04 dataset has a similar format to that of SMR01 with regard to the information provided. Data points are recorded within episodes of care and contain patient demographics, admission, discharge, and diagnostic information. However, in most cases, patients will be transferred to general hospitals to undergo procedures and medical intervention, which would be recorded in SMR01. For this reason, patients are still at risk of experiencing an SMR01 admission while receiving care under the purview of an SMR04 contributing facility. SMR04 admissions tend to be for more extended stays than SMR01 admissions.
   <br></br>
   Useful links:
   SMR04 crib sheet: https://publichealthscotland.scot/media/24927/smr04_crib_270323.pdf
