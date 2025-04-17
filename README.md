@@ -31,11 +31,11 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
 | > SMR01 | General/acute inpatient & day case | 
 | > SMR02 | Maternity inpatient & day case | 
 | > SMR04 | Mental health inpatient & day cases | 
+| > SMR06 | Scottish Cancer Registry |
 | Prescribing Information System (PIS) | Community-based dispensed prescriptions |
 | Scottish Care Information - Diabetes Collaboration (SCI-Diabetes) | Scottish diabetes registry | 
 | Scottish Care Information Store (SCI Store)| Test records |
 
-<!--- | > SMR06 | Scottish Cancer Registry | --->
 <!--- | SERPR | Strathclyde Electronic Renal Patient Record | --->
 <!--- | ChemoCare | Electronic Chemotherapy System | --->
 <!--- | MUSE ECG | General Electric (GE)'s MUSE Cardiology Information System | --->
@@ -55,7 +55,7 @@ Whether it's the National Safe Haven or a regional Safe Haven, data sets availab
 <b>Sex</b> The Demographics <tt>sex</tt> field was taken as the authoritative version for an individual's sex. 
 <br></br>
 <b>Scottish Index of Multiple Deprivation (SIMD)</b>
-    Scottish Index of Multiple Deprivation (SIMD) is an area-based measurement of socioeconomic deprivation assigned to residents of Scotland based on where they live. Scottish residents' SIMD 2012 status was calculated by the Scottish Government using thirty-one indicators from seven different aspects of deprivation: income, employment, health, education, housing, geographic access, and crime. The indicators are combined using a weighted sum to create a single index, providing a relative ranking for each small geographic area in Scotland. Areas average about 800 individuals <a href="#Executive2012">(The Scottish Government 2012)</a>. It is important to note that SIMD can only measure an area’s level of deprivation, not an individual’s level. The absence of deprivation should not necessarily be correlated with affluence. The terms most deprived or least deprived were used to refer to the areas and not to the individuals living in those areas <a href="#Executive2012">(The Scottish Government 2012)</a>. Other year's indexes are also available. 
+    The Scottish Index of Multiple Deprivation (SIMD) is an area-based measurement of socioeconomic deprivation assigned to residents of Scotland based on where they live. Scottish residents' SIMD 2012 status was calculated by the Scottish Government using thirty-one indicators from seven different aspects of deprivation: income, employment, health, education, housing, geographic access, and crime. The indicators are combined using a weighted sum to create a single index, providing a relative ranking for each small geographic area in Scotland. Areas average about 800 individuals <a href="#Executive2012">(The Scottish Government 2012)</a>. It is important to note that SIMD can only measure an area’s level of deprivation, not an individual’s level. The absence of deprivation should not necessarily be correlated with affluence. The terms most deprived or least deprived were used to refer to the areas and not to the individuals living in those areas <a href="#Executive2012">(The Scottish Government 2012)</a>. Indexes from other years are also available. 
 <br></br>
 Useful link: https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/
 <br></br>
@@ -112,24 +112,37 @@ Useful links:
 </details>
 <details>
 <summary>SMR04 - Mental Health Inpatient & Day Cases</summary>
-  SMR04 contains information regarding mental health inpatient and day cases. The SMR04 dataset has a similar format to that of SMR01 with regard to the information provided. Data points are recorded within episodes of care and contain patient demographics, admission, discharge, and diagnostic information. However, in most cases, patients will be transferred to general hospitals to undergo procedures and medical intervention, which would be recorded in SMR01. For this reason, patients are still at risk of experiencing an SMR01 admission while receiving care under the purview of an SMR04 contributing facility. SMR04 admissions tend to be for more extended stays than SMR01 admissions.
+  The Scottish Morbidity Records on Mental Health Inpatient and Day Cases (SMR04) contains information regarding mental health inpatient and day cases. The SMR04 dataset has a similar format to SMR01 in terms of the information provided. Data points are recorded within episodes of care and contain patient demographics, admission and discharge dates, and diagnostic information. However, in most cases, patients will be transferred to general hospitals to undergo procedures and medical intervention, which would be recorded in SMR01. For this reason, patients are still at risk of experiencing an SMR01 admission while receiving care under the purview of an SMR04 contributing facility. SMR04 admissions tend to be for more extended stays than SMR01 admissions.
   <br></br>
   Useful links:
   SMR04 crib sheet: https://publichealthscotland.scot/media/24927/smr04_crib_270323.pdf
 </details>
-<!--- <details> --->
-<!---<summary>SMR06</summary> --->
-<!---</details> --->
+<details>
+<summary>SMR06 - Scottish Cancer Registry </summary>
+  The Scottish Cancer Registry (SMR06) is maintained by Public Health Scotland and captures data on all new cancer diagnoses in Scottish residents. Each row corresponds to an individual cancer registration, with the registry dating back to 1958. From 1997, the dataset expanded to include diagnostic, staging, and treatment information.
+  
+  SMR06 contains patient-level data including demographics, cancer site, histology, behaviour, histological confirmation, and hospital of diagnosis. Additional variables include the Scottish Index of Multiple Deprivation (SIMD) and age at diagnosis. The registry also records the Scottish and European Network of Cancer Registries (ENCR) incidence dates, ensuring standardised definitions for follow-up and survival analyses.
+  
+ See Data Coding Systems below for further details on coding systems. SMR06 uses ICD-10 for disease location and ICD-O for tumour-specific information, enabling detailed analysis of cancer incidence, subtype, and outcomes. Coding captures primary malignant neoplasms, carcinoma in situ, neoplasms of uncertain behaviour, and benign tumours of the brain, spinal cord, and testis. Specific coding rules apply to bilateral tumours and haematopoietic neoplasms. Data quality is maintained through periodic updates in coding practices and classification systems.
+
+Treatment data collection began in 1997 for all cancers and from 2000 for benign brain and spinal cord tumours. Information on staging is available from different periods onwards. Bilateral tumours are registered according to defined rules, with certain paired organs considered a single site when tumours present simultaneously with identical morphology.
+The dataset is linked to hospital admissions (SMR01), death registrations, cancer waiting times, systemic anti-cancer therapy (SACT), radiotherapy, and other national datasets, facilitating comprehensive cancer intelligence analyses.
+
+Useful links: 
+* Scottish Cancer Registry Metadata:  https://webarchive.nrscotland.gov.uk/20231129165949/http://www.isdscotland.org/Health-Topics/Cancer/Scottish-Cancer-Registry/Cancer-Metadata/
+* SMR06 National Data Catalogue: https://publichealthscotland.scot/resources-and-tools/health-intelligence-and-data-management/national-data-catalogue/national-datasets/search-the-datasets/scottish-cancer-registry-smr06/
+* eCRUSAD - SMR06: https://ecrusad.co.uk/data-controllers-datasets/scottish-cancer-registry-smr06/
+</details>
 </details> 
 <details>
   
   <summary><b><i>Prescribing Information System (PIS)</i></b></summary>
-  The Prescribing Information System (PIS) is a fairly unique resource that enables pharmaco-epidemiological research due to its population coverage and record linkage. PIS covers all NHS medications prescribed, dispensed and reimbursed in the community setting within Scotland <a href="#Alvarez-Madrazo2016">(Alvarez-Madrozo et al. 2016)</a>. Prescriptions written in hospitals and dispensed in the community setting are also included in the dataset <a href="#pis2022">(Information Services Division Scotland 2022<i>a</i>)</a>. Of note is that the West of Scotland version of PIS only holds records of dispensed prescriptions. PIS uses the CHI number to link individuals' prescribing and dispensing data to their other health records data since 2009, with a coverage that is almost 100% for prescribed and dispensed items <a href="#Alvarez-Madrazo2016">(Alvarez-Madrozo et al. 2016)</a>. 
+  The Prescribing Information System (PIS) is a reasonably unique resource that enables pharmaco-epidemiological research due to its population coverage and record linkage. PIS covers all NHS medications prescribed, dispensed and reimbursed in the community setting within Scotland <a href="#Alvarez-Madrazo2016">(Alvarez-Madrozo et al. 2016)</a>. Prescriptions written in hospitals and dispensed in the community setting are also included in the dataset <a href="#pis2022">(Information Services Division Scotland 2022<i>a</i>)</a>. Of note is that the West of Scotland version of PIS only holds records of dispensed prescriptions. PIS uses the CHI number to link individuals' prescribing and dispensing data to their other health records data since 2009, with a coverage that is almost 100% for prescribed and dispensed items <a href="#Alvarez-Madrazo2016">(Alvarez-Madrozo et al. 2016)</a>. 
   <br></br>
   For each reimbursed prescription, PIS provides the approved name, product name, formulation, and strength using the British National Formulary (BNF) chapter and item codes. Importantly, PIS does not provide information on how often a medication should be taken, how many pills should be taken at one time, nor at what time of day. Additionally, records do not explicitly record the reasoning or timing of when treatment was started, changed, or terminated <a href="#williams2016making">(Williams, Brown, Peek & Buchan 2016)</a>. 
   <br></br>
   <b>Use of Prescribing and Dispensing Date</b>
-  Each prescription record is accompanied by a prescribing date (<tt>PRESC_DATE</tt>), indicating when the medication was prescribed to the patient, and a dispensing date (<tt>DISP_DATE</tt>), indicating when the patient acquired the medication. The PIS data has two known quirks involving the prescription and dispensing dates that need to be considered. Regarding the prescribing date, there were prescriptions for individual medications where the patient, medication, and prescribed date were the same, but each row had a different dispensed date. One would assume these are repeat prescriptions, but the pattern was rare before 2013. When this pattern isn't present, the prescribed date defaulted to the dispensed date for prescriptions after the initial prescription. That is, the prescribed date changed even if the prescription was repeated.
+  Each prescription record is accompanied by a prescribing date (<tt>PRESC_DATE</tt>), indicating when the medication was prescribed to the patient, and a dispensing date (<tt>DISP_DATE</tt>), indicating when the patient acquired the medication. The PIS data has two known quirks involving the prescription and dispensing dates that need to be considered. Regarding the prescribing date, there were prescriptions for individual medications where the patient, medication, and prescribed date were the same, but each row had a different dispensed date. One would assume these are repeat prescriptions, but the pattern was rare before 2013. When this pattern isn't present, the prescribed date defaults to the dispensed date for prescriptions after the initial prescription. That is, the prescribed date changed even if the prescription was repeated.
 <br></br>
 Concerning the dispensing date, recorded dates likely represent when the pharmacy was reimbursed for the prescription (typically the last day of the month) rather than the date when the medication was dispensed to the patient. This record pattern is shown below, where prescription dates are uniform throughout the month, while dispensing dates tend to fall on the last day of the month. This is likely an artefact due to Scotland's free at-the-point-of-contact prescriptions, where pharmacies are reimbursed monthly rather than on the day when the patient collects the medication. 
 
@@ -175,14 +188,15 @@ The following coding systems are described below:
   
 |Coding System| Description | Dataset(s):  |
 | ------------- | ------------- |------------- |
-| International Classification of Diseases, 10<sup>th</sup> revision (ICD-10) | International disease classification | Deaths, SMR00, SMR01, & SMR04 |
+| International Classification of Diseases, 10<sup>th</sup> revision (ICD-10) | International disease classification | Deaths, SMR00, SMR01, SMR02, SMR04, & SMR06 |
+| International Classification of Diseases for Oncology (ICD-O) | Domain specific extension of ICD-10 | SMR06 | 
 | Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4) | Procedural codes | SMR01 & SMR04 |
 | Read Codes | Primary care coding | GP LES |
 | British National Formulary (BNF)| Coding of medications | PIS |
   
 <details>
 <summary><b><i>International Classification of Diseases, 10<sup>th</sup> revision (ICD-10)</i></b></summary><a name="sec-icd10"></a>
-  The International Classification of Disease (ICD) was originally a system to classify causes of death but has since expanded its scope to include non-fatal diseases, medical procedures, impairments, disabilities and handicaps <a href="#whoicd2016">(World Health Organization 2016)</a>. The 10<sup>th</sup> revision was adopted by the WHO in May 1990 and went into effect on 1 January 1993 <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. More formally, the International Statistical Classification of Diseases and Related Health Problems, 10<sup>th</sup> Revision (ICD-10) coding standard is a hierarchical standard provided by the WHO to enable systematic health recording and collection of statistics on disease in primary, secondary, tertiary care, and death certificates internationally and over time <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. The codes translate potentially complicated medical diagnoses and other health problems into a finite set of alphanumeric codes, permitting easy storage and analysis <a href="#whoicd2016">(World Health Organization 2016)</a>. 
+  The International Classification of Diseases (ICD) was originally a system to classify causes of death but has since expanded its scope to include non-fatal diseases, medical procedures, impairments, disabilities and handicaps <a href="#whoicd2016">(World Health Organization 2016)</a>. The 10<sup>th</sup> revision was adopted by the WHO in May 1990 and went into effect on 1 January 1993 <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. More formally, the International Statistical Classification of Diseases and Related Health Problems, 10<sup>th</sup> Revision (ICD-10) coding standard is a hierarchical standard provided by the WHO to enable systematic health recording and collection of statistics on disease in primary, secondary, tertiary care, and death certificates internationally and over time <a href="#WhoICD2022">(World Health Organization 2022<i>b</i>)</a>. The codes translate potentially complicated medical diagnoses and other health problems into a finite set of alphanumeric codes, permitting easy storage and analysis <a href="#whoicd2016">(World Health Organization 2016)</a>. 
 <br></br>
  Internationally, many countries have developed country-specific modifications to the WHO's version of the ICD-10 codes <a href="#Jette2010">(Jetté et al. 2010)</a>. Universally, codes are at least three characters long, and the maximum can vary (<a href="#whoicd2016">World Health Organization 2016</a>, <a href="#Jette2010">Jetté et al. 2010</a>). Within the UK, ICD-10 codes range between 4 and 6 characters long. The first character is a letter, following international standards, and the second two characters are always numbers, then a period followed by an alphanumeric character <a href="#generalICD">(NHS National Services Scotland nd<i>c</i>)</a>. In the case of a 3-character code, the UK fills in the fourth character with an 'x' <a href="#NhsDigitalIcd2022">(NHS Digital 2022<i>b</i>)</a>. If present, the sixth character is the dagger 'D' or asterisk 'A' indicator, though these can be present in the fifth position, where there are either modified 3-character or standard 4-character codes <a href="#codeFormats">(NHS National Services Scotland nd<i>d</i>)</a>. 
     <br></br>
@@ -192,6 +206,14 @@ Useful links:
 * Classification browser ICD-10: https://icd.who.int/browse10/2016/en
 * Code list generation: https://www.opencodelists.org/
   
+</details>
+<details>
+<summary><b><i>International Classification of Diseases for Oncology (ICD-O)</i></b></summary>
+For many cancer registries, diagnostic information is coded using the International Classification of Diseases (ICD) and International Classification of Diseases for Oncology (ICD-O), with version updates aligned to international guidelines. ICD-10 coding for cancers primarily captures the anatomical site of disease for clinical coding, mortality statistics, and general health reporting. In contrast, ICD-O is designed specifically for oncology, providing a dual-axis system that codes both the tumour site (topography) and detailed histological type and behaviour (morphology), essential for cancer registration and research. 
+
+Useful links:
+* NIH's National Institute of Cancer's ICD-O-3 coding materials: https://seer.cancer.gov/icd-o-3/
+* The WHO's classification reference: https://iris.who.int/bitstream/10665/96612/1/9789241548496_eng.pdf
 </details>
 <details>
 <summary><b><i>Office of Population Censuses and Surveys Classification of Interventions and Procedures, version 4 (OPCS-4)</i></b></summary><a name="sec-opcs"></a>
