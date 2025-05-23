@@ -65,4 +65,4 @@ smr01[, hospStayID := cumsum(series == 1)]
 
 ### Step 8: Merge hospStayID back onto smr01
 smr01 <- smr01[,c("row_ID", "hospStayID")]
-Fullsmr01 <- merge(Fullsmr01, smr01, by= "row_ID", all= TRUE)
+smr01All <- merge(smr01All, smr01, by= "row_ID", all= TRUE)
