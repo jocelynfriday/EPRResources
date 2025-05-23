@@ -3,6 +3,8 @@
 # This is done as admission and discharge events do not include time information, so transfers with a discharge before midnight 
 # and the associated admission after midnight will have non-overlapping dates. 
 
+# !NOTE! Ensure all admission (ADMDATE) and discharge (DISDATE) dates are populated and not null. 
+
 ##Identifying nested episodes of care within a continuous admission and assigning a unique hospitalStayID per admission
 
 ### Step 1: Load libraries and set up the environment
