@@ -11,18 +11,18 @@
 library(tidyverse)
 library(data.table)
 
-smr01All <- fread("SMR01.csv")
+smr01_all <- fread("SMR01.csv")
 
 #### Step 1a: If the SMR01 data does not have a unique row ID, add one
-smr01All[, row_id := .I]
+smr01_all[, row_id := .I]
 
 ### Step 2: Update data types & subset to necessary columns
-smr01All$SafeHavenID <- as.factor(smr01All$SafeHavenID)
-smr01All$ADMDATE <- as.Date(smr01All$ADMDATE)
-smr01All$DISDATE <- as.Date(smr01All$DISDATE)
+smr01_all$SafeHavenID <- as.factor(smr01_all$SafeHavenID)
+smr01_all$ADMDATE <- as.Date(smr01_all$ADMDATE)
+smr01_all$DISDATE <- as.Date(smr01_all$DISDATE)
 
 ##### Subset away to only pertinent information 
-smr01 <- smr01All[, c("SafeHavenID", "ADMDATE", "DISDATE", "row_id")]
+smr01 <- smr01_all[, c("SafeHavenID", "ADMDATE", "DISDATE", "row_id")]
 
 ###Step 3: Order smr01 by SafeHavenID, admission date (ADMDATE), and discharge date (DISDATE) in ascending order
 setorder(smr01, SafeHavenID, ADMDATE, DISDATE)
@@ -67,4 +67,4 @@ smr01[, hospital_stay_id := cumsum(series == 1)]
 
 ### Step 8: Merge hospital_stay_id back onto smr01
 smr01 <- smr01[,c("row_id", "hospital_stay_id")]
-smr01All <- merge(smr01All, smr01, by= "row_id", all= TRUE)
+smr01_all <- merge(smr01_all, smr01, by= "row_id", all= TRUE)
