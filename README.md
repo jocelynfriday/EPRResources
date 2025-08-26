@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/869416454.svg)](https://doi.org/10.5281/zenodo.16949015)
+
 # Electronic Patient Records (EPR) Resources
 A collection of resources, both papers and websites, that are useful when working with electronic patient records (EPRs), particularly Scottish data. 
 
