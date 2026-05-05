@@ -1,0 +1,23 @@
+cff-version: 1.0.0
+message: 'If you use this document or code, please cite it as below.'
+authors:
+- family-names: "Friday"
+  name-particle: "M"
+  given-names: "Jocelyn"
+  orcid: "https://orcid.org/0000-0002-1658-3883"
+- family-names: "Elyan"
+  name-particle: "MP"
+  given-names: "Benjamin"
+  orcid: "https://orcid.org/0000-0001-8848-1395"
+- family-names: "Hastie"
+  name-particle: "E"
+  given-names: "Claire"
+  orcid: "https://orcid.org/0000-0002-4604-3319"
+- family-names: "Wing"
+  given-names: "Kevin"
+  orcid: "https://orcid.org/0000-0003-2335-9641"
+title: "Electronic Patient Records (EPR) Resources"
+version: 1.0.1
+doi: 10.5281/zenodo.16949016
+date-released: 2026-05-05
+url: "https://github.com/jocelynfriday/EPRResources"
